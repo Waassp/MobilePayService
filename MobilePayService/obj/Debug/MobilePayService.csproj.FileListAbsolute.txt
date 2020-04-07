@@ -1,0 +1,681 @@
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\csc.exe
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\csc.exe.config
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\csc.rsp
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\csi.exe
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\csi.exe.config
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\csi.rsp
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.AppContext.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Collections.Immutable.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Console.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Diagnostics.Process.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.IO.Compression.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.IO.FileSystem.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.IO.Pipes.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Reflection.Metadata.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Security.AccessControl.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Security.Claims.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Security.Principal.Windows.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Threading.Thread.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.ValueTuple.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Xml.XPath.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\vbc.exe
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\vbc.exe.config
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\vbc.rsp
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\VBCSCompiler.exe
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\roslyn\VBCSCompiler.exe.config
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\MobilePayService.dll.config
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\MobilePayService.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\MobilePayService.pdb
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Newtonsoft.Json.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.Http.Formatting.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Web.Http.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Web.Http.WebHost.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Newtonsoft.Json.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.Http.Formatting.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Web.Http.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Web.Http.WebHost.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csprojResolveAssemblyReference.cache
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csproj.CoreCompileInputs.cache
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\obj\Debug\MobilePayService.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\obj\Debug\MobilePayService.pdb
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Web.Mvc.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Web.Razor.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Web.WebPages.Razor.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Web.WebPages.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Web.Infrastructure.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Web.WebPages.Deployment.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Win32.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\netstandard.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.AppContext.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Collections.Concurrent.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Collections.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Collections.NonGeneric.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Collections.Specialized.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.ComponentModel.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.ComponentModel.EventBasedAsync.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.ComponentModel.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.ComponentModel.TypeConverter.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Console.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Data.Common.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Diagnostics.Contracts.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Diagnostics.Debug.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Diagnostics.FileVersionInfo.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Diagnostics.Process.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Diagnostics.StackTrace.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Diagnostics.TextWriterTraceListener.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Diagnostics.Tools.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Diagnostics.TraceSource.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Diagnostics.Tracing.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Drawing.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Dynamic.Runtime.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Globalization.Calendars.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Globalization.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Globalization.Extensions.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.Compression.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.Compression.ZipFile.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.FileSystem.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.FileSystem.DriveInfo.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.FileSystem.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.FileSystem.Watcher.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.IsolatedStorage.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.MemoryMappedFiles.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.Pipes.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IO.UnmanagedMemoryStream.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Linq.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Linq.Expressions.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Linq.Parallel.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Linq.Queryable.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.Http.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.NameResolution.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.NetworkInformation.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.Ping.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.Requests.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.Security.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.Sockets.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.WebHeaderCollection.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.WebSockets.Client.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Net.WebSockets.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.ObjectModel.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Reflection.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Reflection.Extensions.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Reflection.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Resources.Reader.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Resources.ResourceManager.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Resources.Writer.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.CompilerServices.VisualC.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.Extensions.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.Handles.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.InteropServices.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.Numerics.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.Serialization.Formatters.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.Serialization.Json.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.Serialization.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.Serialization.Xml.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Security.Claims.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Security.Cryptography.Algorithms.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Security.Cryptography.Csp.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Security.Cryptography.Encoding.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Security.Cryptography.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Security.Cryptography.X509Certificates.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Security.Principal.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Security.SecureString.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Text.Encoding.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Text.Encoding.Extensions.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Text.RegularExpressions.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Threading.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Threading.Overlapped.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Threading.Tasks.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Threading.Tasks.Parallel.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Threading.Thread.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Threading.ThreadPool.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Threading.Timer.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.ValueTuple.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Xml.ReaderWriter.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Xml.XDocument.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Xml.XmlDocument.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Xml.XmlSerializer.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Xml.XPath.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Xml.XPath.XDocument.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\IdentityModel.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\IdentityModel.OidcClient.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.Binder.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Logging.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Options.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Primitives.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.Logging.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.Tokens.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Buffers.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Memory.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Numerics.Vectors.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Text.Encodings.Web.dll
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\IdentityModel.pdb
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\IdentityModel.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\IdentityModel.OidcClient.pdb
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\IdentityModel.OidcClient.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.Binder.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Logging.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Options.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Primitives.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.Logging.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.Tokens.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Buffers.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Memory.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Numerics.Vectors.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Task Related\Merchant Onboarding\MobilePayService\MobilePayService\bin\System.Text.Encodings.Web.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.IO.Compression.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\VBCSCompiler.exe
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\csc.exe
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\csc.exe.config
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\csc.rsp
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\csi.exe
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\csi.exe.config
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\csi.rsp
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.AppContext.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Console.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.IO.Pipes.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Security.Claims.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Threading.Thread.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.ValueTuple.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Xml.XPath.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\vbc.exe
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\vbc.exe.config
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\vbc.rsp
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Win32.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\netstandard.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.AppContext.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Collections.Concurrent.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Collections.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Collections.NonGeneric.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Collections.Specialized.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.ComponentModel.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.ComponentModel.EventBasedAsync.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.ComponentModel.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.ComponentModel.TypeConverter.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Console.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Data.Common.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Diagnostics.Contracts.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Diagnostics.Debug.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Diagnostics.FileVersionInfo.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Diagnostics.Process.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Diagnostics.StackTrace.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Diagnostics.TextWriterTraceListener.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Diagnostics.Tools.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Diagnostics.TraceSource.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Diagnostics.Tracing.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Drawing.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Dynamic.Runtime.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Globalization.Calendars.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Globalization.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Globalization.Extensions.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.Compression.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.Compression.ZipFile.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.FileSystem.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.FileSystem.DriveInfo.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.FileSystem.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.FileSystem.Watcher.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.IsolatedStorage.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.MemoryMappedFiles.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.Pipes.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IO.UnmanagedMemoryStream.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Linq.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Linq.Expressions.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Linq.Parallel.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Linq.Queryable.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.Http.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.NameResolution.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.NetworkInformation.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.Ping.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.Requests.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.Security.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.Sockets.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.WebHeaderCollection.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.WebSockets.Client.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.WebSockets.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.ObjectModel.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Reflection.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Reflection.Extensions.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Reflection.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Resources.Reader.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Resources.ResourceManager.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Resources.Writer.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.CompilerServices.VisualC.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.Extensions.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.Handles.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.InteropServices.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.Numerics.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.Serialization.Formatters.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.Serialization.Json.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.Serialization.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.Serialization.Xml.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Security.Claims.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Security.Cryptography.Csp.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Security.Principal.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Security.SecureString.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Text.Encoding.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Text.Encoding.Extensions.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Text.RegularExpressions.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Threading.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Threading.Overlapped.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Threading.Tasks.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Threading.Tasks.Parallel.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Threading.Thread.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Threading.ThreadPool.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Threading.Timer.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.ValueTuple.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Xml.ReaderWriter.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Xml.XDocument.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Xml.XmlDocument.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Xml.XmlSerializer.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Xml.XPath.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Xml.XPath.XDocument.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.Core.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\IdentityModel.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\IdentityModel.OidcClient.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Logging.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Options.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Newtonsoft.Json.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Buffers.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Memory.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.Http.Formatting.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Numerics.Vectors.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Text.Encodings.Web.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Helpers.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Http.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Http.WebHost.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Mvc.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Razor.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.WebPages.Deployment.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.WebPages.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.WebPages.Razor.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\WebMatrix.Data.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\WebMatrix.WebData.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Mono.Math.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.Core.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\IdentityModel.pdb
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\IdentityModel.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\IdentityModel.OidcClient.pdb
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\IdentityModel.OidcClient.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Logging.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Options.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Newtonsoft.Json.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Buffers.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Memory.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Numerics.Vectors.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Text.Encodings.Web.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Helpers.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Mvc.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Razor.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.WebPages.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.WebPages.Deployment.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.WebPages.Razor.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\WebMatrix.Data.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\WebMatrix.WebData.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Net.Http.Formatting.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Http.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\System.Web.Http.WebHost.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\Mono.Math.xml
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csproj.CoreCompileInputs.cache
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\obj\Debug\MobilePayService.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\obj\Debug\MobilePayService.pdb
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\MobilePayService.dll.config
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\MobilePayService.dll
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\bin\MobilePayService.pdb
+C:\Users\raza.ashfaq\Desktop\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csprojResolveAssemblyReference.cache
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\csc.exe
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\csc.exe.config
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\csc.rsp
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\csi.exe
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\csi.exe.config
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\csi.rsp
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.AppContext.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Collections.Immutable.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Console.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Diagnostics.Process.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.IO.Compression.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.IO.FileSystem.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.IO.Pipes.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Reflection.Metadata.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Security.AccessControl.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Security.Claims.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Security.Principal.Windows.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Threading.Thread.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.ValueTuple.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Xml.XmlDocument.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Xml.XPath.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\vbc.exe
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\vbc.exe.config
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\vbc.rsp
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\VBCSCompiler.exe
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\roslyn\VBCSCompiler.exe.config
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\MobilePayService.dll.config
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\MobilePayService.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\MobilePayService.pdb
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Win32.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\netstandard.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.AppContext.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Collections.Concurrent.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Collections.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Collections.NonGeneric.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Collections.Specialized.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.ComponentModel.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.ComponentModel.EventBasedAsync.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.ComponentModel.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.ComponentModel.TypeConverter.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Console.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Data.Common.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Diagnostics.Contracts.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Diagnostics.Debug.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Diagnostics.FileVersionInfo.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Diagnostics.Process.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Diagnostics.StackTrace.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Diagnostics.TextWriterTraceListener.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Diagnostics.Tools.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Diagnostics.TraceSource.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Diagnostics.Tracing.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Drawing.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Dynamic.Runtime.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Globalization.Calendars.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Globalization.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Globalization.Extensions.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.Compression.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.Compression.ZipFile.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.FileSystem.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.FileSystem.DriveInfo.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.FileSystem.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.FileSystem.Watcher.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.IsolatedStorage.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.MemoryMappedFiles.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.Pipes.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IO.UnmanagedMemoryStream.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Linq.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Linq.Expressions.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Linq.Parallel.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Linq.Queryable.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Http.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.NameResolution.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.NetworkInformation.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Ping.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Requests.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Security.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Sockets.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.WebHeaderCollection.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.WebSockets.Client.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.WebSockets.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.ObjectModel.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Reflection.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Reflection.Extensions.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Reflection.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Resources.Reader.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Resources.ResourceManager.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Resources.Writer.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.CompilerServices.VisualC.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.Extensions.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.Handles.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.InteropServices.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.Numerics.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.Serialization.Formatters.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.Serialization.Json.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.Serialization.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.Serialization.Xml.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Security.Claims.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Security.Cryptography.Algorithms.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Security.Cryptography.Csp.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Security.Cryptography.Encoding.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Security.Cryptography.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Security.Cryptography.X509Certificates.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Security.Principal.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Security.SecureString.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Text.Encoding.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Text.Encoding.Extensions.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Text.RegularExpressions.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Threading.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Threading.Overlapped.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Threading.Tasks.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Threading.Tasks.Parallel.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Threading.Thread.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Threading.ThreadPool.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Threading.Timer.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.ValueTuple.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Xml.ReaderWriter.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Xml.XDocument.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Xml.XmlDocument.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Xml.XmlSerializer.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Xml.XPath.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Xml.XPath.XDocument.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.AspNet.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.Core.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.OAuth.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.OpenId.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\IdentityModel.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\IdentityModel.OidcClient.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Configuration.Binder.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Configuration.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Logging.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Options.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Primitives.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.IdentityModel.Logging.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.IdentityModel.Tokens.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Web.Infrastructure.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Newtonsoft.Json.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Buffers.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Memory.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Http.Formatting.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Http.WebRequest.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Numerics.Vectors.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Text.Encodings.Web.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Helpers.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Http.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Http.WebHost.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Mvc.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Razor.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.WebPages.Deployment.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.WebPages.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.WebPages.Razor.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\WebMatrix.Data.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\WebMatrix.WebData.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Org.Mentalis.Security.Cryptography.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Mono.Math.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.AspNet.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.Core.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.OAuth.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.OpenId.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\IdentityModel.pdb
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\IdentityModel.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\IdentityModel.OidcClient.pdb
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\IdentityModel.OidcClient.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Configuration.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Configuration.Binder.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Logging.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Options.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Extensions.Primitives.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.IdentityModel.Logging.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.IdentityModel.Tokens.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Newtonsoft.Json.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Buffers.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Memory.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Http.WebRequest.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Numerics.Vectors.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Text.Encodings.Web.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Helpers.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Mvc.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Razor.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.WebPages.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.WebPages.Deployment.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.WebPages.Razor.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\WebMatrix.Data.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\WebMatrix.WebData.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Net.Http.Formatting.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Http.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\System.Web.Http.WebHost.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Org.Mentalis.Security.Cryptography.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\bin\Mono.Math.xml
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\obj\Debug\MobilePayService.csprojResolveAssemblyReference.cache
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\obj\Debug\MobilePayService.csproj.CoreCompileInputs.cache
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\obj\Debug\MobilePayService.dll
+E:\SolutionSpace\Project Repository\GIT\MobilPay\MobilePayService\obj\Debug\MobilePayService.pdb

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/MerchantTokens" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/MerchantTokens" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/MerchantTokens" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="PutMerchantTokens">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="accessToken" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="refreshToken" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PutMerchantTokens_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="PutMerchantTokens">
+    <part name="parameters" element="tns:PutMerchantTokens" />
+  </message>
+  <message name="PutMerchantTokens_Result">
+    <part name="parameters" element="tns:PutMerchantTokens_Result" />
+  </message>
+  <portType name="MerchantTokens_Port">
+    <operation name="PutMerchantTokens">
+      <input name="PutMerchantTokens" message="tns:PutMerchantTokens" />
+      <output name="PutMerchantTokens_Result" message="tns:PutMerchantTokens_Result" />
+    </operation>
+  </portType>
+  <binding name="MerchantTokens_Binding" type="tns:MerchantTokens_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="PutMerchantTokens">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/MerchantTokens:PutMerchantTokens" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PutMerchantTokens">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PutMerchantTokens_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="MerchantTokens">
+    <port name="MerchantTokens_Port" binding="tns:MerchantTokens_Binding">
+      <address location="https://api.businesscentral.dynamics.com/v2.0/a6aec78e-8b25-4bc0-8e2f-2ab576f0fa66/batchflow4-sandbox/WS/CRONUS%20Danmark%20A%252FS/Codeunit/MerchantTokens?tenant=msneua5672t01503758&amp;aid=FIN" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
