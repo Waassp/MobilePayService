@@ -44,8 +44,7 @@ namespace MobilePayService.Methods
         {
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            string query = "if exists(select 1 from MobilePayOnBoarding   where  [TenantIdFormatted] = '" + data.extractedTenantId + "' ) begin UPDATE MobilePayOnBoarding SET UserName = '" + data.userName + "', Password = '" + data.password + "' ,BCTenantId = '" + data.BCTenantId + "', State = '" + data.state + "' , CodeVerifier = '" + data.code_verifier + "', CodeChallenge = '" + data.code_challenge + "' where TenantIdFormatted = '"+ data.extractedTenantId +"' end else begin  insert into MobilePayOnBoarding (UserName,Password,BCTenantId,State,CodeVerifier,CodeChallenge,TenantIdFormatted) values('" + data.userName + "','" + data.password + "','" + data.BCTenantId + "','" + data.state + "','" + data.code_verifier + "','" + data.code_challenge + "','" + data.extractedTenantId + "') end";
-            //string query = "if exists (select * from MobilePayOnBoarding where Password ='" + data.password +"') insert into MobilePayOnBoarding (UserName,Password,BCTenantId,State,CodeVerifier,CodeChallenge) values('" + data.userName + "','" + data.password + "','" + data.BCTenantId + "','" + data.state + "','" + data.code_verifier + "','" + data.code_challenge + "')";
+            string query = "if exists(select 1 from MobilePayOnBoarding   where  [TenantIdFormatted] = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "') begin UPDATE MobilePayOnBoarding SET UserName = '" + data.userName + "', Password = '" + data.password + "' ,BCTenantId = '" + data.BCTenantId + "', State = '" + data.state + "' , CodeVerifier = '" + data.code_verifier + "', CodeChallenge = '" + data.code_challenge + "', Premium='"+data.enableCallback+ "' where TenantIdFormatted = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "' end else begin  insert into MobilePayOnBoarding (UserName,Password,BCTenantId,State,CodeVerifier,CodeChallenge,TenantIdFormatted,Premium) values('" + data.userName + "','" + data.password + "','" + data.BCTenantId + "','" + data.state + "','" + data.code_verifier + "','" + data.code_challenge + "','" + data.extractedTenantId + "','" + data.enableCallback + "') end";
             sqlCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand.ExecuteNonQuery();
@@ -119,6 +118,26 @@ namespace MobilePayService.Methods
             sqlCommand.Dispose();
         }
 
+        public static void AddMerchantID(string merchantId, AccessTokenModel data)
+        {
+            WithConnection(conn =>
+            {
+                AddMerchantID(merchantId, data, conn);
+            });
+
+        }
+
+        public static void AddMerchantID(string merchantId, AccessTokenModel data, SqlConnection conn)
+        {
+            SqlCommand sqlCommand;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            string query = "update MobilePayOnBoarding Set MerchantId='" + merchantId + "' where AccessToken='" + data.access_token + "' and RefreshToken='" + data.refresh_token + "'";
+            sqlCommand = new SqlCommand(query, conn);
+            sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
+            sqlDataAdapter.InsertCommand.ExecuteNonQuery();
+            sqlCommand.Dispose();
+        }
+
 
         public static string GetCodeVerifier(string state, Action<BCClientModel> callback)
         {
@@ -135,7 +154,7 @@ namespace MobilePayService.Methods
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             BCClientModel bCClient = new BCClientModel();
-            string query = "select CodeVerifier,UserName,Password,BCTenantId from MobilePayOnBoarding where state='" + state + "'";
+            string query = "select CodeVerifier,UserName,Password,BCTenantId,Premium from MobilePayOnBoarding where state='" + state + "'";
             string codeverified = "";
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
@@ -146,6 +165,7 @@ namespace MobilePayService.Methods
                     bCClient.userName = reader.GetString(1);
                     bCClient.password = reader.GetString(2);
                     bCClient.BCTenantId = reader.GetString(3);
+                    bCClient.enableCallback = reader.GetString(4);
                 }
 
             }
@@ -156,22 +176,21 @@ namespace MobilePayService.Methods
             return codeverified;
         }
 
-        public static void VerifyTenantID(string BcTenantID, Action<string> status)
+
+        public static void VerifyTenantID(string query, Action<string> status)
         {
-            //string codeVerifier = "";
             WithConnection(conn =>
             {
-                VerifyTenantID(BcTenantID, conn, status);
+                VerifyTenantID(query, conn, status);
             });
-            //return codeVerifier;
         }
 
-        public static void VerifyTenantID(string BcTenantID, SqlConnection conn, Action<string> status)
+        public static void VerifyTenantID(string query, SqlConnection conn, Action<string> status)
         {
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             BCClientModel bCClient = new BCClientModel();
-            string query = "select ID from MobilePayOnBoarding where BCTenantId='" + BcTenantID + "'";
+            //string query = "select ID from MobilePayOnBoarding where BCTenantId='" + BcTenantID + "'";
             int id = 0;
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
@@ -192,6 +211,56 @@ namespace MobilePayService.Methods
             //return codeverified;
         }
 
+        public static void VerifyInvoice(InvoiceModel Invoice, Action<BCClientModel> callback)
+        {           
+            WithConnection(conn =>
+            {
+                VerifyInvoice(Invoice, conn, callback);
+            });
+            
+        }
+
+        public static void VerifyInvoice(InvoiceModel Invoice, SqlConnection conn, Action<BCClientModel> callback)
+        {
+            SqlCommand sqlCommand;
+            //string query= "select mp.BCTenantId from UserInvoice uin, MobilePayOnBoarding mp where uin.InvoiceUrl = mp.InvoiceCallBackSoapURL and uin.invoiceid = '" + Invoice.InvoiceId + "'";
+            string query = "select BCTenantURL,invoiceUrl from UserInvoice where InvoiceId='" + Invoice.InvoiceId +"'";
+            string bcTenantId = "";
+            sqlCommand = new SqlCommand(query, conn);
+            using (SqlDataReader reader = sqlCommand.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    bcTenantId = reader.GetString(0);
+                    Invoice.InvoiceCallBackSoapURL = reader.GetString(1);
+
+                }
+
+            }
+            sqlCommand.Dispose();
+            if (!string.IsNullOrEmpty(bcTenantId))
+            {
+                UpdateInvoice(Invoice, conn);
+                GetMerchantData(bcTenantId, conn, BcClientModel =>
+                {
+                    callback(BcClientModel);
+                });
+            }
+            else
+            {
+                callback(null);
+            }
+        }
+        private static void UpdateInvoice(InvoiceModel invoice, SqlConnection conn)
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            var query = "Update UserInvoice Set status='" + invoice.Status + "', errorcode= '" + invoice.ErrorCode + "', errormessage= '" + invoice.ErrorMessage + "' where invoiceid='" + invoice.InvoiceId + "'";
+            SqlCommand sqlCommand = new SqlCommand(query, conn);
+            sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
+            sqlDataAdapter.InsertCommand.ExecuteNonQuery();
+            sqlCommand.Dispose();
+        }
+
         public static void VerifyAgreement(string AgreementId, Action<BCClientModel> callback)
         {
             WithConnection(conn =>
@@ -203,8 +272,6 @@ namespace MobilePayService.Methods
         public static void VerifyAgreement(string AgreementId, SqlConnection conn, Action<BCClientModel> callback)
         {
             SqlCommand sqlCommand;
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            BCClientModel bCClient = new BCClientModel();
             string query = "select BCTenantId from UserAgreement where AgreementId='" + AgreementId + "'";
             string tenantId = "";
             sqlCommand = new SqlCommand(query, conn);
@@ -218,18 +285,26 @@ namespace MobilePayService.Methods
             }
             sqlCommand.Dispose();
             if (!string.IsNullOrEmpty(tenantId))
+            {
                 GetMerchantData(tenantId, conn, BcClientModel =>
                 {
                     callback(BcClientModel);
                 });
-                
+
+            }
+            else
+            {
+                callback(null);
+            }
+               
+
         }
         private static void GetMerchantData(string tenantId, SqlConnection conn, Action<BCClientModel> BcClientModel)
         {
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             BCClientModel bCClient = new BCClientModel();
-            string query = "select CodeVerifier,UserName,Password,BCTenantId from MobilePayOnBoarding where BCTenantId='" + tenantId + "'";
+            string query = "select CodeVerifier,UserName,Password,BCTenantId,AccessToken,RefreshToken,Premium from MobilePayOnBoarding where BCTenantId='" + tenantId + "'";
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
             {
@@ -238,13 +313,36 @@ namespace MobilePayService.Methods
                     bCClient.userName = reader.GetString(1);
                     bCClient.password = reader.GetString(2);
                     bCClient.BCTenantId = reader.GetString(3);
+                    bCClient.accessToken = string.IsNullOrEmpty(reader.GetString(4)) ? "" : reader.GetString(4);
+                    bCClient.refreshToken = string.IsNullOrEmpty(reader.GetString(5)) ? "" : reader.GetString(5);
+                    bCClient.enableCallback = string.IsNullOrEmpty(reader.GetString(6)) ? "" :reader.GetString(6);
+                    
                 }
 
             }
             sqlCommand.Dispose();
             BcClientModel(bCClient);
         }
+        public static int GenerateInvoice(InvoiceModel invoice)
+        {
+            int x = 0;
+            WithConnection(conn =>
+            {
+                x = GenerateInvoice(invoice,conn);
+            });
+            return x;
+        }
 
+        private static int GenerateInvoice(InvoiceModel invoice, SqlConnection conn)
+        {
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            var query = "if exists(select 1 from UserInvoice   where  [InvoiceId] = '" + invoice.InvoiceId + "' ) Begin Select -1 End Else Begin insert into UserInvoice (invoiceId,invoiceUrl,BCTenantURL) OUTPUT INSERTED.ID values('" + invoice.InvoiceId + "','" + invoice.InvoiceCallBackSoapURL + "','" + invoice.BCTenantURL + "') End;";
+            SqlCommand sqlCommand = new SqlCommand(query, conn);
+            sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
+            var val = sqlDataAdapter.InsertCommand.ExecuteScalar();
+            sqlCommand.Dispose();
+            return (Int32)val;
+        }
         public static int InsertAgreement(AgreementModel agreement)
         {
             int x = 0;
@@ -286,7 +384,13 @@ namespace MobilePayService.Methods
             sqlCommand.Dispose();
         }
 
-
+        public static void GetTokens(string BcTenantId, Action<BCClientModel> callback)
+        {
+            WithConnection(conn =>
+            {
+                GetMerchantData(BcTenantId, conn, callback);
+            });
+        }
 
     }
 }

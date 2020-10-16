@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MobilePayService.Authentication;
+using MobilePayService.RestAPI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -19,6 +21,8 @@ namespace MobilePayService
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.Filters.Add(new BasicAuthenticationAttribute());
+            config.MessageHandlers.Add(new WrappingHandler());
         }
     }
 }

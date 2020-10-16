@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,9 @@ namespace MobilePayService.Models
         public string userName { get; set; }
         public string password { get; set; }
         public string BCTenantId { get; set; }
+        public string enableCallback { get; set; }
+        public string accessToken { get; set; }
+        public string refreshToken { get; set; }
         public string extractedTenantId
         {
             get
@@ -46,16 +50,16 @@ namespace MobilePayService.Models
         {
             get
             {
-                return "https://dev.mdcnordic.com:8443/mobilepay/redirect/";
+               return ConfigurationManager.AppSettings["RedirectUrl"];
             }
         }
-        public string scope
-        {
-            get
-            {
-                return "openid%20subscriptions%20offline_access";
-            }
-        }
+        public string scope { get; set; }
+        //{
+        //    get
+        //    {
+        //        return "openid%20subscriptions%20offline_access";
+        //    }
+        //}
         public string code_challenge_method
         {
             get

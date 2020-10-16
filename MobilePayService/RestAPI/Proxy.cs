@@ -1,8 +1,10 @@
 ﻿using MobilePayService.Methods;
 using MobilePayService.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -20,7 +22,6 @@ namespace MobilePayService.RestAPI
         private string parameters = "";
         public Proxy()
         {
-
             //client = new System.Net.WebClient();
             //client.Headers.Add("X-AppSecretToken", appId);
             //client.Headers.Add("X-AgreementGrantToken", granttoken);
@@ -31,7 +32,7 @@ namespace MobilePayService.RestAPI
             string HtmlResult = "";
             AuthCodeMethod.GetAccessTokenAsync(clientModel, model => {
                 Url = new Uri(clientModel.url);
-                parameters = model.url + "?response_type=" + model.response_type + "&client_id=" + model.client_id + "&redirect_uri=" + model.redirect_uri + "&scope=" + model.scope + "&state=" + clientModel.state +
+                parameters = model.url + "?response_type=" + model.response_type + "&client_id=" + model.client_id + "&redirect_uri=" + model.redirect_uri + "&scope=openid" + model.scope + "offline_access&state=" + clientModel.state +
                     "&code_challenge=" + model.code_challenge + "&code_challenge_method=" + model.code_challenge_method + "&nonce=" + model.nonce + "&response_mode=form_post";
 
                 using (WebClient wc = new WebClient())
@@ -62,7 +63,6 @@ namespace MobilePayService.RestAPI
                 wc.QueryString.Add("code_verifier", model.code_verifier);
                 wc.QueryString.Add("client_id", model.client_id);
                 wc.QueryString.Add("client_secret", model.client_secret);
-                // HtmlResult = wc.UploadString(Url,"POST",wc.QueryString);
                 var data = wc.UploadValues(Url, "POST", wc.QueryString);
                 // data here is optional, in case we recieve any string data back from the POST request.
                 HtmlResult = UnicodeEncoding.UTF8.GetString(data);
@@ -104,10 +104,67 @@ namespace MobilePayService.RestAPI
             webRequest.Method = "POST";
             return webRequest;
         }
+
+        public static string GetMerchantId(string accessToken)
+        {
+            string merchantId="";
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("https://api.sandbox.mobilepay.dk/invoice-restapi/api/v1/merchants/me");
+            webRequest.Headers.Add("Authorization:"+ accessToken);
+            webRequest.Headers.Add("x-ibm-client-id:5a1b01c5-f7f6-44cb-b712-6c027b831e86");
+            webRequest.Headers.Add("x-ibm-client-secret:P4cO4aR0fI5dE5aL7pR2rJ8qT8lD5vK7yL3qW7qD3jP3dB5bJ2");
+            webRequest.ContentType = "text/xml;charset=\"UTF-8\"";
+            webRequest.Method = "GET";            
+            try
+            {
+                using (WebResponse response = webRequest.GetResponse())
+                {
+                    using (StreamReader rd = new StreamReader(response.GetResponseStream()))
+                    {
+                        merchantId = rd.ReadToEnd();
+                        if(!string.IsNullOrEmpty(merchantId))
+                            merchantId = JsonConvert.DeserializeObject<dynamic>(merchantId)["MerchantId"].Value; 
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                merchantId = null;                
+            }
+            return merchantId;
+        }
+
         public static string Base64Encode(string plainText)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
             return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+        public void PostInvoice(BCClientModel clientModel, InvoiceModel invoice,string responsebody)
+        {
+            string Cred = clientModel.userName + ":" + clientModel.password;
+            HttpWebRequest request = CreateWebRequest(invoice.InvoiceCallBackSoapURL, Cred);
+            XmlDocument soapEnvelopeXml = new XmlDocument();
+            soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:mer='urn:microsoft-dynamics-schemas/codeunit/Invoice_CallBack'> <soapenv:Body> <mer:InvoiceCallBack> <mer:invoiceId>" + invoice.InvoiceId + "</mer:invoiceId> <mer:status>" + invoice.Status + "</mer:status> <mer:errorCode>" + invoice.ErrorCode + "</mer:errorCode> <mer:errorMessage>" + invoice.ErrorMessage + "</mer:errorMessage> <mer:date>" + invoice.Date + "</mer:date> <mer:response_Body>" + responsebody + "</mer:response_Body> </mer:InvoiceCallBack> </soapenv:Body> </soapenv:Envelope>");
+            using (Stream stream = request.GetRequestStream())
+            {
+                soapEnvelopeXml.Save(stream);
+            }
+            try
+            {
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (StreamReader rd = new StreamReader(response.GetResponseStream()))
+                    {
+                        string soapResult = rd.ReadToEnd();
+                        Console.WriteLine(soapResult);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+                
+            }
         }
 
         public void PostAgreement(BCClientModel clientModel, AgreementModel agreement)
@@ -173,6 +230,7 @@ namespace MobilePayService.RestAPI
         }
         public void SimpleListenerExample(string redirectUrl)
         {
+            
             BCClientModel clientModel = new BCClientModel();
             AccessTokenModel accessToken = new AccessTokenModel();
             if (!HttpListener.IsSupported)
@@ -193,6 +251,7 @@ namespace MobilePayService.RestAPI
             // Note: The GetContext method blocks while waiting for a request. 
             HttpListenerContext context = listener.GetContext();
             HttpListenerRequest request = context.Request;
+            
             formData = GetRequestPostData(request);
             int count = 0;
             foreach (Match mech in rx.Matches(formData))
@@ -213,14 +272,24 @@ namespace MobilePayService.RestAPI
                 {
                     clientModel = callback;
                 });
-
+                
                 string returns = getRefereshToken(accessToken, model =>
                 {
                     DBManager.AddTokens(model);
-                    PostToClient(clientModel.userName, clientModel.password, clientModel.BCTenantId, model.access_token, model.refresh_token);
+                    if (clientModel.enableCallback.Equals("true"))
+                    {
+                        string merchantId = "";
+                        PostToClient(clientModel.userName, clientModel.password, clientModel.BCTenantId, model.access_token, model.refresh_token);
 
-
+                        if (!string.IsNullOrEmpty(model.access_token))
+                            merchantId = GetMerchantId(model.access_token);
+                        if (!string.IsNullOrEmpty(merchantId) && !string.IsNullOrEmpty(model.access_token))
+                            DBManager.AddMerchantID(merchantId, model);
+                    }
+                        
                 });
+
+
 
             }
             catch (Exception eexx)
@@ -232,19 +301,7 @@ namespace MobilePayService.RestAPI
                 // Stop HttpListener
                 listener.Stop();
             }
-            // Obtain a response object.
-            //HttpListenerResponse response = context.Response;
-
-            // Construct a response.
-            //string responseString = "<HTML><BODY> Hello world!</BODY></HTML>";
-            //byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
-            //// Get a response stream and write the response to it.
-            //response.ContentLength64 = buffer.Length;
-            //System.IO.Stream output = response.OutputStream;
-            //output.Write(buffer, 0, buffer.Length);
-            // You must close the output stream.
-            //output.Close();
-            // listener.Stop();
+            
         }
     }
 }

@@ -1,129 +1,68 @@
-﻿using MobilePayService.Methods;
-using MobilePayService.Models;
-using MobilePayService.RestAPI;
+﻿using MobilePayService.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading;
+using System.Text;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace MobilePayService.Controllers
 {
-    public class MobilePayController : Controller
+   
+    public class MobilePayController : ApiController
     {
-        Thread t;
-        HttpListener listener;
-
-        // Non-static method 
-        private void mythread1()
-        {
-            BCClientModel bcClient = new BCClientModel();
-
-            Proxy proxy = new Proxy();
-            proxy.SimpleListenerExample(bcClient.redirect_uri);
-            //listener = new HttpListener();
-            //listener.Prefixes.Add("https://dev.mdcnordic.com:8443/mobilepay/redirect/");
-            //listener.Start();
-            // t.Start();
-        }
-        // GET: api/MobilePay
-        [System.Web.Http.Route("MobilePay")]
+        // GET: Test        
         [System.Web.Http.HttpPost]
-        public string Post([FromBody]BCClientModel content)
+        [System.Web.Http.Route("MobilePayIndex/PostInvoice")]
+        [Authentication.BasicAuthentication]
+        public IHttpActionResult PostInvoice([FromBody]List<InvoiceModel> lstInvoice)
         {
-            MobilePayController obj = new MobilePayController();
-            // Creating thread 
-            // Using thread class 
-            Thread thr = new Thread(new ThreadStart(obj.mythread1));
-            thr.Start();
-            string url = "";
-            BCClientModel bcClient = new BCClientModel();
-            bcClient.userName = content.userName;// "SY";
-            bcClient.password = content.password;// "D7tSLRBqzPe0UAmqQe3vyJbw0WGC4/RCjnpxrrPTdr0=";
-            bcClient.BCTenantId = content.BCTenantId;// "https://api.businesscentral.dynamics.com/v2.0/a6aec78e-8b25-4bc0-8e2f-2ab576f0fa66/batchflow4-sandbox/WS/CRONUS%20Danmark%20A%2FS/Codeunit/AgreementCallBack";
-            Proxy proxy = new Proxy();
-            // string p = proxy.getRefreshedToken();
-            //AuthCodeMethod.GetAccessTokenAsync();
+            string key = null;
+            //string returnmsg = "";
+            StringBuilder returnmsg = new StringBuilder();
+            MobilePayIndexController mobilepayindex = new MobilePayIndexController();
+
+
+            if (lstInvoice == null)
+                return Content(HttpStatusCode.BadRequest,"Invalid parameters!");
             try
             {
-                url = proxy.SendLogingRequest(bcClient, model =>
-                 {
-                     DBManager.InsertRecord(model);
-                 });
-                //proxy.SimpleListenerExample(bcClient.redirect_uri);
+                var settings = new JsonSerializerSettings();
+                settings.NullValueHandling = NullValueHandling.Ignore;
+                settings.DefaultValueHandling = DefaultValueHandling.Ignore;
+                var responsebody = JsonConvert.SerializeObject(lstInvoice, settings);
+                var highestDate = lstInvoice.Max(T => T.Date);
 
-            }
-            catch (Exception eexx)
-            {
-                throw eexx;
-            }
-            finally
-            {
-                // Stop HttpListener
-                // httpListener.Stop();
-            }
-            
-
-            return url;
-        }
-        [System.Web.Http.HttpGet]
-        // GET: api/MobilePay/5
-        public string Get()
-        {
-            return "value";
-        }
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-
-        [System.Web.Http.Route("RefreshToken")]
-        [System.Web.Http.HttpPost]
-        // POST: api/MobilePay
-        public void Post([FromBody]string value)
-        {
-            AccessTokenModel accessToken = new AccessTokenModel();
-            //bcClient.userName = "meganb@m365x009498.onmicrosoft.com";
-            //bcClient.password = "D7tSLRBqzPe0UAmqQe3vyJbw0WGC4/RCjnpxrrPTdr0=";
-            //bcClient.BCTenantId = "https://api.businesscentral.dynamics.com/v2.0/a6aec78e-8b25-4bc0-8e2f-2ab576f0fa66/batchflow4-sandbox/WS/CRONUS%20Danmark%20A%2FS/Codeunit/AgreementCallBack";
-            Proxy proxy = new Proxy();
-            // string p = proxy.getRefreshedToken();
-            //AuthCodeMethod.GetAccessTokenAsync();
-            accessToken.code = "341b9e646059fb42e21d72d17dff5c05306cff94f2ea6048e4bf96b07bef2896";
-            accessToken.code_verifier = "gr9VwnmCJ-a-qWB2bd01dpnPGZHNzsOGC2qnNlxcm1g";
-            try
-            {
-                string returns = proxy.getRefereshToken(accessToken, model =>
-                {
-                    DBManager.AddTokens(model);
+                lstInvoice.ForEach(invoice => {
+                    if (highestDate == invoice.Date)
+                    {
+                        returnmsg.Append("InvoiceId: ").Append(invoice.InvoiceId).Append("  ReturnMessage: ");
+                        returnmsg.Append(mobilepayindex.PostInvoice(invoice, responsebody));
+                        returnmsg.AppendLine();
+                    }
+                    
                 });
             }
-            catch (Exception eexx)
-            {
-                throw eexx;
+            catch (WebException ex)
+            {                
+                returnmsg.Append(ex.Message);           
+                if (((System.Net.HttpWebResponse)ex.Response).StatusCode.ToString().Equals("Unauthorized"))
+                    return Content(HttpStatusCode.Unauthorized, returnmsg.ToString());
+
             }
-            finally
+            catch (Exception ex)
             {
-                // Stop HttpListener
-                // httpListener.Stop();
+                returnmsg.Append(ex.Message);
+                return Content(HttpStatusCode.BadRequest, returnmsg);
             }
 
-        }
-
-        // PUT: api/MobilePay/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/MobilePay/5
-        public void Delete(int id)
-        {
+            
+            return Content(HttpStatusCode.OK, returnmsg);
         }
     }
 }

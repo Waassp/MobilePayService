@@ -19,7 +19,7 @@ namespace MobilePayService.Models
         {
             get
             {
-                return "https://dev.mdcnordic.com:8443/mobilepay/redirect/";
+                return "https://dev.mdcnordic.com:8443/mobilepay/mdcredirect/";
             }
         }
         public string code_verifier { get; set; }
@@ -40,6 +40,8 @@ namespace MobilePayService.Models
         public string id_token { get; set; }
         public string access_token { get; set; }
         public string refresh_token { get; set; }
+
+        public string merchantId { get; set; }
 
         public string state { get; set; }
 
