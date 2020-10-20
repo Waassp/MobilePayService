@@ -106,10 +106,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/24/2018 20:20:00</publishTime>
     </File>
     <File Include="bin/MobilePayService.dll">
-      <publishTime>10/16/2020 00:38:37</publishTime>
+      <publishTime>10/16/2020 16:12:34</publishTime>
     </File>
     <File Include="bin/MobilePayService.pdb">
-      <publishTime>10/16/2020 00:38:37</publishTime>
+      <publishTime>10/16/2020 16:12:34</publishTime>
     </File>
     <File Include="bin/Mono.Math.dll">
       <publishTime>11/28/2012 03:03:36</publishTime>

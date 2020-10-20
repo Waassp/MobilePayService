@@ -50,7 +50,7 @@ namespace MobilePayService.Models
         {
             get
             {
-               return ConfigurationManager.AppSettings["RedirectUrl"];
+                return ConfigurationManager.AppSettings["RedirectUrl"].ToString();
             }
         }
         public string scope { get; set; }

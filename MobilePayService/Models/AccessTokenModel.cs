@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -19,7 +20,7 @@ namespace MobilePayService.Models
         {
             get
             {
-                return "https://dev.mdcnordic.com:8443/mobilepay/mdcredirect/";
+                return ConfigurationManager.AppSettings["RedirectUrl"].ToString(); ;
             }
         }
         public string code_verifier { get; set; }
