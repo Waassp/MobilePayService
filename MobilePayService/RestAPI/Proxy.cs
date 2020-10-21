@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -47,33 +48,58 @@ namespace MobilePayService.RestAPI
 
         public string getRefereshToken(AccessTokenModel model, Action<AccessTokenModel> callback)
         {
-            string HtmlResult = "";
-            parameters = null;
-            //AuthCodeMethod.GetAccessTokenAsync(clientModel, model => {
-            Url = new Uri("https://api.sandbox.mobilepay.dk/merchant-authentication-openidconnect/connect/token");
-            parameters = "grant_type =" + model.grant_type + "&code=" + model.code + "&redirect_uri=" + model.redirect_uri + "&code_verifier=" + model.code_verifier + "&client_id=" + model.client_id +
-                "&client_secret=" + model.client_secret + "";
-
-            using (WebClient wc = new WebClient())
+            var pocoObject = new
             {
-                wc.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
-                wc.QueryString.Add("grant_type", model.grant_type);
-                wc.QueryString.Add("code", model.code);
-                wc.QueryString.Add("redirect_uri", model.redirect_uri);
-                wc.QueryString.Add("code_verifier", model.code_verifier);
-                wc.QueryString.Add("client_id", model.client_id);
-                wc.QueryString.Add("client_secret", model.client_secret);
-                var data = wc.UploadValues(Url, "POST", wc.QueryString);
-                // data here is optional, in case we recieve any string data back from the POST request.
-                HtmlResult = UnicodeEncoding.UTF8.GetString(data);
-                JObject json = JObject.Parse(HtmlResult);
-                model.access_token = json.GetValue("access_token").ToString();
-                model.refresh_token = json.GetValue("refresh_token").ToString();
+                Name = "Waqar",
+                Occupation = "developer"
+            };
+            var json = JsonConvert.SerializeObject(pocoObject);
+            var data = new StringContent(json, Encoding.UTF8, "application/x-www-form-urlencoded");
+            var parameters = new Dictionary<string, string>();
+            parameters["grant_type"] = model.grant_type;
+            parameters["code"]       = model.code;
+            parameters["redirect_uri"] = model.redirect_uri;
+            parameters["code_verifier"] = model.code_verifier;
+            parameters["client_id"] = model.client_id;
+            parameters["client_secret"] = model.client_secret;
+            Url = new Uri("https://api.sandbox.mobilepay.dk/merchant-authentication-openidconnect/connect/token");
+           
 
-            }
+            //Create a query
+            HttpClient client = new HttpClient();
+            var response = client.PostAsync(Url, new FormUrlEncodedContent(parameters));
+            //string result = response.Content.ReadAsStringAsync();
+
+            //close out the client
+            client.Dispose();
+
+            //string HtmlResult = "";
+            //parameters = null;
+            ////AuthCodeMethod.GetAccessTokenAsync(clientModel, model => {
+
+
+            //Query = "grant_type =" + model.grant_type + "&code=" + model.code + "&redirect_uri=" + model.redirect_uri + "&code_verifier=" + model.code_verifier + "&client_id=" + model.client_id +
+            //   "&client_secret=" + model.client_secret + "";
+            //using (WebClient wc = new WebClient())
+            //{
+            //    wc.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+            //    wc.QueryString.Add("grant_type", model.grant_type);
+            //    wc.QueryString.Add("code", model.code);
+            //    wc.QueryString.Add("redirect_uri", model.redirect_uri);
+            //    wc.QueryString.Add("code_verifier", model.code_verifier);
+            //    wc.QueryString.Add("client_id", model.client_id);
+            //    wc.QueryString.Add("client_secret", model.client_secret);
+            //    var data = wc.UploadValues(Url, "POST", wc.QueryString);
+            //    // data here is optional, in case we recieve any string data back from the POST request.
+            //    HtmlResult = UnicodeEncoding.UTF8.GetString(data);
+            //    JObject json = JObject.Parse(HtmlResult);
+            //    model.access_token = json.GetValue("access_token").ToString();
+            //    model.refresh_token = json.GetValue("refresh_token").ToString();
+
+            //}
             callback(model);
 
-            return HtmlResult;
+            return "";//HtmlResult;
         }
 
         public static string GetRequestPostData(HttpListenerRequest request)
