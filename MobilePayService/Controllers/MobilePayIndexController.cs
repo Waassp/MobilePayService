@@ -71,11 +71,11 @@ namespace MobilePayService.Controllers
         public ActionResult MobilePay([FromBody]BCClientModel content)
         {
             int insertedId = 0;
-            string baseURL = GetBaseUrl();
-            string returnedURL = GenerateAuthURL(content);
+            string baseURL = GetBaseUrl();            
 
             try
             {
+                string returnedURL = GenerateAuthURL(content);
                 SessionUrl su = new SessionUrl();
                 su.url = returnedURL;
                 su.bcTenantId = content.password;
@@ -83,7 +83,8 @@ namespace MobilePayService.Controllers
             }
             catch (Exception eexx)
             {
-                throw eexx;
+                var message = "Exception in mobilepay method Exception is " + eexx.Message;
+                System.Diagnostics.EventLog.WriteEntry(message, eexx.StackTrace,System.Diagnostics.EventLogEntryType.Error);
             }
             string dataToPassWithUrl = baseURL + "/MobilePayIndex" + "/?sessionId=" + insertedId;
 
@@ -249,7 +250,7 @@ namespace MobilePayService.Controllers
             BCClientModel bcClient = new BCClientModel();
             bcClient.userName = content.userName;
             bcClient.password = content.password;
-            bcClient.BCTenantId = content.BCTenantId;// "https://api.businesscentral.dynamics.com/v2.0/a6aec78e-8b25-4bc0-8e2f-2ab576f0fa66/batchflow4-sandbox/WS/CRONUS%20Danmark%20A%2FS/Codeunit/AgreementCallBack";
+            bcClient.BCTenantId = content.BCTenantId;
             bcClient.enableCallback = string.IsNullOrEmpty(content.enableCallback) ? "false" : content.enableCallback;
             bcClient.scope = content.scope;
             Proxy proxy = new Proxy();
@@ -263,7 +264,7 @@ namespace MobilePayService.Controllers
             }
             catch (Exception eexx)
             {
-                throw eexx;
+                throw;
             }
             finally
             {

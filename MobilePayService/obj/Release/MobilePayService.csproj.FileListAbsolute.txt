@@ -710,3 +710,5 @@ E:\SolutionSpace\Project Repository\GIT\MobilePayService\MobilePayService\obj\Re
 E:\SolutionSpace\Project Repository\GIT\MobilePayService\MobilePayService\obj\Release\MobilePayService.csproj.CoreCompileInputs.cache
 E:\SolutionSpace\Project Repository\GIT\MobilePayService\MobilePayService\obj\Release\MobilePayService.dll
 E:\SolutionSpace\Project Repository\GIT\MobilePayService\MobilePayService\obj\Release\MobilePayService.pdb
+E:\SolutionSpace\Project Repository\GIT\MobilePayService\MobilePayService\bin\System.Net.Http.WinHttpHandler.dll
+E:\SolutionSpace\Project Repository\GIT\MobilePayService\MobilePayService\bin\System.Net.Http.WinHttpHandler.xml

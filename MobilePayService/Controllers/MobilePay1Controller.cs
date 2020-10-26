@@ -99,7 +99,7 @@ namespace MobilePayService.Controllers
             accessToken.code_verifier = "gr9VwnmCJ-a-qWB2bd01dpnPGZHNzsOGC2qnNlxcm1g";
             try
             {
-                string returns = proxy.getRefereshToken(accessToken, model =>
+                proxy.getRefereshToken(accessToken, model =>
                 {
                     DBManager.AddTokens(model);
                 });
