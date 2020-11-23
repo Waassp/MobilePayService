@@ -7,10 +7,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace MobilePayService.Controllers
 {
@@ -39,17 +41,20 @@ namespace MobilePayService.Controllers
 
         public ActionResult Index()
         {
-            int key = Convert.ToInt32( HttpContext.Request.QueryString["sessionId"]);
+            int key = Convert.ToInt32(HttpContext.Request.QueryString["sessionId"]);
             ViewBag.Url = DBManager.GetUrlByKey(key);
 
             return View("Welcome");
         }
 
+        public ActionResult RedirectTest()
+        {
+            return View("redirect");
+        }
+
+        [RequireHttps]
         public ActionResult Redirect()
         {
-           // int key = Convert.ToInt32(HttpContext.Request.QueryString["sessionId"]);
-           // ViewBag.Url = DBManager.GetUrlByKey(key);
-
             return View("redirect");
         }
 
@@ -68,7 +73,7 @@ namespace MobilePayService.Controllers
 
 
         [System.Web.Mvc.HttpPost]
-        public ActionResult MobilePay([FromBody]BCClientModel content)
+        public ActionResult MobilePay([FromBody] BCClientModel content)
         {
             int insertedId = 0;
             string baseURL = GetBaseUrl();
@@ -79,7 +84,7 @@ namespace MobilePayService.Controllers
                 SessionUrl su = new SessionUrl();
                 su.url = returnedURL;
                 su.bcTenantId = content.password;
-                insertedId =     DBManager.InsertRecordSession(su);
+                insertedId = DBManager.InsertRecordSession(su);
             }
             catch (Exception eexx)
             {
@@ -92,10 +97,10 @@ namespace MobilePayService.Controllers
 
 
         [System.Web.Mvc.HttpPost]
-        public string GenerateInvoice([FromBody]InvoiceModel invoice)
+        public string GenerateInvoice([FromBody] InvoiceModel invoice)
         {
-           
-            int id = 0; string str = "Thanks!"; 
+
+            int id = 0; string str = "Thanks!";
             string query = "select ID from MobilePayOnBoarding where BCTenantId = '" + invoice.BCTenantURL + "'";
 
 
@@ -123,7 +128,7 @@ namespace MobilePayService.Controllers
             return str;
         }
 
-        public  string PostInvoice(InvoiceModel invoice,string responsebody)
+        public string PostInvoice(InvoiceModel invoice, string responsebody)
         {
             //InvoiceModel invoice = lstInvoice[0];            
             string str = "Thanks!";
@@ -148,10 +153,10 @@ namespace MobilePayService.Controllers
 
 
         [System.Web.Mvc.HttpPost]
-        public string CreateAgreement([FromBody]AgreementModel agreement)
+        public string CreateAgreement([FromBody] AgreementModel agreement)
         {
-            int id=0; string str="Thanks!";
-            string query = "select ID from MobilePayOnBoarding where BCTenantId='" +agreement.BcTenantId + "'";
+            int id = 0; string str = "Thanks!";
+            string query = "select ID from MobilePayOnBoarding where BCTenantId='" + agreement.BcTenantId + "'";
             try
             {
                 DBManager.VerifyTenantID(query, status =>
@@ -166,7 +171,7 @@ namespace MobilePayService.Controllers
                         str = "Agreement Id already Exist !";
 
                 });
-                
+
             }
             catch (Exception eexx)
             {
@@ -177,27 +182,28 @@ namespace MobilePayService.Controllers
         }
 
         [System.Web.Mvc.HttpPost]
-        public string UpdateAgreementStatus([FromBody]AgreementModel agreement)
+        public string UpdateAgreementStatus([FromBody] AgreementModel agreement)
         {
             int id = 0; string str = "Thanks!";
             try
             {
-            DBManager.VerifyAgreement(agreement.Agreement_Id, callback => {
-
-                if (callback!=null)
+                DBManager.VerifyAgreement(agreement.Agreement_Id, callback =>
                 {
-                    DBManager.UpdateAgreement(agreement);
-                    Proxy proxy = new Proxy();
-                    if (callback.enableCallback.Equals("true"))
-                        proxy.PostAgreement(callback, agreement);
-                }
-                else
-                {
-                    str = "Invalid agreement !";
-                }
-                
 
-            });            
+                    if (callback != null)
+                    {
+                        DBManager.UpdateAgreement(agreement);
+                        Proxy proxy = new Proxy();
+                        if (callback.enableCallback.Equals("true"))
+                            proxy.PostAgreement(callback, agreement);
+                    }
+                    else
+                    {
+                        str = "Invalid agreement !";
+                    }
+
+
+                });
             }
             catch (Exception eexx)
             {
@@ -205,17 +211,17 @@ namespace MobilePayService.Controllers
             }
 
             return str;
-            }
+        }
 
         [System.Web.Mvc.HttpPost]
-        public string GetTokens([FromBody]BCClientModel content)
+        public string GetTokens([FromBody] BCClientModel content)
         {
             BCClientModel bCClient = new BCClientModel();
-            string json="";
+            string json = "";
             string query = "select ID from MobilePayOnBoarding where BCTenantId='" + content.BCTenantId + "'";
             DBManager.VerifyTenantID(query, status =>
             {
-                
+
                 if (status.Equals("S"))
                 {
                     DBManager.GetTokens(content.BCTenantId, callback =>
@@ -223,7 +229,7 @@ namespace MobilePayService.Controllers
                         var results = new
                         {
                             AccessToken = callback.accessToken,
-                            RefreshToken = callback.refreshToken                            
+                            RefreshToken = callback.refreshToken
                         };
 
                         json = JsonConvert.SerializeObject(results);
@@ -235,15 +241,24 @@ namespace MobilePayService.Controllers
                     json = "Invalide tenantId !";
                 }
 
-                     
-             });
+
+            });
             return json;
         }
 
         private string GenerateAuthURL(BCClientModel content)
         {
-            Thread thr = new Thread(new ThreadStart(mythread1));
-            thr.Start();
+            ThreadStart starter = new ThreadStart(mythread1);
+
+            starter += () =>
+            {
+                Redirect();
+            };
+
+            Thread _thread = new Thread(starter) { IsBackground = true };
+            _thread.Start();
+
+
 
             string url = "";
             BCClientModel bcClient = new BCClientModel();
@@ -264,10 +279,6 @@ namespace MobilePayService.Controllers
             catch (Exception eexx)
             {
                 throw eexx;
-            }
-            finally
-            {
-
             }
             return url;
         }
