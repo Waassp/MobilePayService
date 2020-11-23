@@ -33,7 +33,7 @@ namespace MobilePayService.Controllers
         // GET: api/MobilePay
         [System.Web.Http.Route("MobilePay")]
         [System.Web.Http.HttpPost]
-        public string Post([FromBody]BCClientModel content)
+        public string Post([FromBody] BCClientModel content)
         {
             MobilePay1Controller obj = new MobilePay1Controller();
             // Creating thread 
@@ -51,9 +51,9 @@ namespace MobilePayService.Controllers
             try
             {
                 url = proxy.SendLogingRequest(bcClient, model =>
-                 {
-                     DBManager.InsertRecord(model);
-                 });
+                {
+                    DBManager.InsertRecord(model);
+                });
                 //proxy.SimpleListenerExample(bcClient.redirect_uri);
 
             }
@@ -66,7 +66,7 @@ namespace MobilePayService.Controllers
                 // Stop HttpListener
                 // httpListener.Stop();
             }
-            
+
 
             return url;
         }
@@ -86,7 +86,7 @@ namespace MobilePayService.Controllers
         [System.Web.Http.Route("RefreshToken")]
         [System.Web.Http.HttpPost]
         // POST: api/MobilePay
-        public void Post([FromBody]string value)
+        public void Post([FromBody] string value)
         {
             AccessTokenModel accessToken = new AccessTokenModel();
             //bcClient.userName = "meganb@m365x009498.onmicrosoft.com";
@@ -99,7 +99,8 @@ namespace MobilePayService.Controllers
             accessToken.code_verifier = "gr9VwnmCJ-a-qWB2bd01dpnPGZHNzsOGC2qnNlxcm1g";
             try
             {
-                string returns = proxy.getRefereshToken(accessToken, model =>
+                //string returns = 
+                proxy.getRefereshToken(accessToken, model =>
                 {
                     DBManager.AddTokens(model);
                 });
@@ -117,7 +118,7 @@ namespace MobilePayService.Controllers
         }
 
         // PUT: api/MobilePay/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 

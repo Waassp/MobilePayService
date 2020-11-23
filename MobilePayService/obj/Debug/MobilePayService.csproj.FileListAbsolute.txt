@@ -1154,3 +1154,5 @@ D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\Mobile
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csproj.CopyComplete
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.dll
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.pdb
+D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Net.Http.WinHttpHandler.dll
+D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Net.Http.WinHttpHandler.xml
