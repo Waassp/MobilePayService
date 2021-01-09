@@ -24,7 +24,7 @@ namespace MobilePayService.Controllers
             BCClientModel bcClient = new BCClientModel();
 
             Proxy proxy = new Proxy();
-            proxy.SimpleListenerExample(bcClient.redirect_uri);
+           // proxy.SimpleListenerExample(bcClient.redirect_uri);
             //listener = new HttpListener();
             //listener.Prefixes.Add("https://dev.mdcnordic.com:8443/mobilepay/redirect/");
             //listener.Start();
@@ -50,10 +50,10 @@ namespace MobilePayService.Controllers
             //AuthCodeMethod.GetAccessTokenAsync();
             try
             {
-                url = proxy.SendLogingRequest(bcClient, model =>
-                {
-                    DBManager.InsertRecord(model);
-                });
+                //url = proxy.SendLogingRequest(bcClient, model =>
+                //{
+                //    DBManager.InsertRecord(model);
+                //});
                 //proxy.SimpleListenerExample(bcClient.redirect_uri);
 
             }
@@ -100,10 +100,10 @@ namespace MobilePayService.Controllers
             try
             {
                 //string returns = 
-                proxy.getRefereshToken(accessToken, model =>
-                {
-                    DBManager.AddTokens(model);
-                });
+                //proxy.getRefereshToken(accessToken, model =>
+                //{
+                //    DBManager.AddTokens(model);
+                //});
             }
             catch (Exception eexx)
             {

@@ -3,28 +3,26 @@ using MobilePayService.Models;
 using MobilePayService.RestAPI;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
-using System.Web.Routing;
+using HttpServer = MobilePayService.RestAPI.HttpServer;
 
 namespace MobilePayService.Controllers
 {
     public class MobilePayIndexController : Controller
     {
+        HttpProxyServer proxy = null;
+        public HttpServer Server = null;
+        string REDIRECT_URL = ConfigurationManager.AppSettings["RedirectUrl"].ToString();
 
-        private void mythread1()
-        {
-            BCClientModel bcClient = new BCClientModel();
-            Proxy proxy = new Proxy();
-            proxy.SimpleListenerExample(bcClient.redirect_uri);
-        }
+        //private void mythread1()
+        //{
+        //    BCClientModel bcClient = new BCClientModel();
+        //    proxy = new HttpProxyServer();
+        //    proxy.SimpleListenerExample(bcClient.redirect_uri);
+        //}
 
         public string GetBaseUrl()
         {
@@ -78,6 +76,8 @@ namespace MobilePayService.Controllers
             int insertedId = 0;
             string baseURL = GetBaseUrl();
             string returnedURL = GenerateAuthURL(content);
+            
+            Server.Start(REDIRECT_URL);
 
             try
             {
@@ -139,7 +139,7 @@ namespace MobilePayService.Controllers
             {
                 if (callback != null)
                 {
-                    Proxy proxy = new Proxy();
+                    proxy = new HttpProxyServer();
                     if (callback.enableCallback.Equals("true"))
                         proxy.PostInvoice(callback, invoice, responsebody);
                 }
@@ -193,7 +193,7 @@ namespace MobilePayService.Controllers
                     if (callback != null)
                     {
                         DBManager.UpdateAgreement(agreement);
-                        Proxy proxy = new Proxy();
+                        proxy = new HttpProxyServer();
                         if (callback.enableCallback.Equals("true"))
                             proxy.PostAgreement(callback, agreement);
                     }
@@ -248,15 +248,15 @@ namespace MobilePayService.Controllers
 
         private string GenerateAuthURL(BCClientModel content)
         {
-            ThreadStart starter = new ThreadStart(mythread1);
+            //ThreadStart starter = new ThreadStart(mythread1);
 
-            starter += () =>
-            {
-                Redirect();
-            };
+            //starter += () =>
+            //{
+            //    Redirect();
+            //};
 
-            Thread _thread = new Thread(starter) { IsBackground = true };
-            _thread.Start();
+            //Thread _thread = new Thread(starter) { IsBackground = true };
+            //_thread.Start();
 
 
 
@@ -267,7 +267,7 @@ namespace MobilePayService.Controllers
             bcClient.BCTenantId = content.BCTenantId;// "https://api.businesscentral.dynamics.com/v2.0/a6aec78e-8b25-4bc0-8e2f-2ab576f0fa66/batchflow4-sandbox/WS/CRONUS%20Danmark%20A%2FS/Codeunit/AgreementCallBack";
             bcClient.enableCallback = string.IsNullOrEmpty(content.enableCallback) ? "false" : content.enableCallback;
             bcClient.scope = content.scope;
-            Proxy proxy = new Proxy();
+            proxy = new HttpProxyServer();
             try
             {
                 url = proxy.SendLogingRequest(bcClient, model =>

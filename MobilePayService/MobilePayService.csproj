@@ -255,6 +255,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Methods\AuthCodeMethod.cs" />
+    <Compile Include="Methods\Common.cs" />
     <Compile Include="Methods\DBManager.cs" />
     <Compile Include="Models\AccessTokenModel.cs" />
     <Compile Include="Models\AgreementModel.cs" />
@@ -263,6 +264,8 @@
     <Compile Include="Models\SessionUrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestAPI\ApiResponse.cs" />
+    <Compile Include="RestAPI\HttpProxyServer.cs" />
+    <Compile Include="RestAPI\HttpServer.cs" />
     <Compile Include="RestAPI\Proxy.cs" />
     <Compile Include="RestAPI\WrappingHandler.cs" />
   </ItemGroup>
