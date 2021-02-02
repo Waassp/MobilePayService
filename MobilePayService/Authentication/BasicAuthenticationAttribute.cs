@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Principal;
@@ -15,7 +13,7 @@ namespace MobilePayService.Authentication
 {
     public class BasicAuthenticationAttribute : AuthorizationFilterAttribute
     {
-       
+
         private const string Realm = "mdcnordic";
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -48,7 +46,7 @@ namespace MobilePayService.Authentication
                 //Second element of the array is the password
                 string password = usernamePasswordArray[1];
                 //call the login method to check the username and password
-                  var isValid = username == ConfigurationManager.AppSettings["UserName"].ToString() && password == ConfigurationManager.AppSettings["Password"].ToString();
+                var isValid = username == ConfigurationManager.AppSettings["UserName"].ToString() && password == ConfigurationManager.AppSettings["Password"].ToString();
 
                 if (isValid)
                 {

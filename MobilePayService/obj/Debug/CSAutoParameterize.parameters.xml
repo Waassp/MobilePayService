@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Server=mdcnmobilepay.database.windows.net,1433;User ID=sqladmin;Password=Passw0rd;Database=mdcnmobilepay;Trusted_Connection=False;Encrypt=True;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="E:\\SolutionSpace\\Project\ Repository\\GIT\\MobilePayService\\MobilePayService\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
-  </parameter>
-</parameters>

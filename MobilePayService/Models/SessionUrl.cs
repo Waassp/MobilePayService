@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MobilePayService.Models
+﻿namespace MobilePayService.Models
 {
     public class SessionUrl
     {

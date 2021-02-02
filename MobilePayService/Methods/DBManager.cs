@@ -1,10 +1,7 @@
 ﻿using MobilePayService.Models;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace MobilePayService.Methods
 {
@@ -44,7 +41,7 @@ namespace MobilePayService.Methods
         {
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            string query = "if exists(select 1 from MobilePayOnBoarding   where  [TenantIdFormatted] = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "') begin UPDATE MobilePayOnBoarding SET UserName = '" + data.userName + "', Password = '" + data.password + "' ,BCTenantId = '" + data.BCTenantId + "', State = '" + data.state + "' , CodeVerifier = '" + data.code_verifier + "', CodeChallenge = '" + data.code_challenge + "', Premium='"+data.enableCallback+ "' where TenantIdFormatted = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "' end else begin  insert into MobilePayOnBoarding (UserName,Password,BCTenantId,State,CodeVerifier,CodeChallenge,TenantIdFormatted,Premium) values('" + data.userName + "','" + data.password + "','" + data.BCTenantId + "','" + data.state + "','" + data.code_verifier + "','" + data.code_challenge + "','" + data.extractedTenantId + "','" + data.enableCallback + "') end";
+            string query = "if exists(select 1 from MobilePayOnBoarding   where  [TenantIdFormatted] = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "') begin UPDATE MobilePayOnBoarding SET UserName = '" + data.userName + "', Password = '" + data.password + "' ,BCTenantId = '" + data.BCTenantId + "', State = '" + data.state + "' , CodeVerifier = '" + data.code_verifier + "', CodeChallenge = '" + data.code_challenge + "', Premium='" + data.enableCallback + "' where TenantIdFormatted = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "' end else begin  insert into MobilePayOnBoarding (UserName,Password,BCTenantId,State,CodeVerifier,CodeChallenge,TenantIdFormatted,Premium) values('" + data.userName + "','" + data.password + "','" + data.BCTenantId + "','" + data.state + "','" + data.code_verifier + "','" + data.code_challenge + "','" + data.extractedTenantId + "','" + data.enableCallback + "') end";
             sqlCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand.ExecuteNonQuery();
@@ -56,7 +53,7 @@ namespace MobilePayService.Methods
             string url = "";
             WithConnection(conn =>
             {
-                url  = GetUrlByKey(key, conn);
+                url = GetUrlByKey(key, conn);
             });
             return url;
         }
@@ -66,12 +63,14 @@ namespace MobilePayService.Methods
             string url = "";
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            string query = "select *  from SessionUrl where id = "+ key;
+            string query = "select *  from SessionUrl where id = " + key;
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
             {
                 while (reader.Read())
-                     url = reader.GetString(1);
+                {
+                    url = reader.GetString(1);
+                }
             }
             sqlCommand.Dispose();
             return url;
@@ -82,7 +81,7 @@ namespace MobilePayService.Methods
             int x = 0;
             WithConnection(conn =>
             {
-                 x = InsertRecordSession(data, conn);
+                x = InsertRecordSession(data, conn);
             });
             return x;
         }
@@ -169,8 +168,6 @@ namespace MobilePayService.Methods
                 }
 
             }
-            //sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
-            //sqlDataAdapter.InsertCommand.ExecuteNonQuery();
             sqlCommand.Dispose();
             callback(bCClient);
             return codeverified;
@@ -190,7 +187,6 @@ namespace MobilePayService.Methods
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             BCClientModel bCClient = new BCClientModel();
-            //string query = "select ID from MobilePayOnBoarding where BCTenantId='" + BcTenantID + "'";
             int id = 0;
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
@@ -201,30 +197,33 @@ namespace MobilePayService.Methods
                 }
 
             }
-            
+
             sqlCommand.Dispose();
 
             if (id > 0)
+            {
                 status("S");
+            }
             else
+            {
                 status("E");
+            }
             //return codeverified;
         }
 
         public static void VerifyInvoice(InvoiceModel Invoice, Action<BCClientModel> callback)
-        {           
+        {
             WithConnection(conn =>
             {
                 VerifyInvoice(Invoice, conn, callback);
             });
-            
+
         }
 
         public static void VerifyInvoice(InvoiceModel Invoice, SqlConnection conn, Action<BCClientModel> callback)
         {
             SqlCommand sqlCommand;
-            //string query= "select mp.BCTenantId from UserInvoice uin, MobilePayOnBoarding mp where uin.InvoiceUrl = mp.InvoiceCallBackSoapURL and uin.invoiceid = '" + Invoice.InvoiceId + "'";
-            string query = "select BCTenantURL,invoiceUrl from UserInvoice where InvoiceId='" + Invoice.InvoiceId +"'";
+            string query = "select BCTenantURL,invoiceUrl from UserInvoice where InvoiceId='" + Invoice.InvoiceId + "'";
             string bcTenantId = "";
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
@@ -296,7 +295,7 @@ namespace MobilePayService.Methods
             {
                 callback(null);
             }
-               
+
 
         }
         private static void GetMerchantData(string tenantId, SqlConnection conn, Action<BCClientModel> BcClientModel)
@@ -315,8 +314,8 @@ namespace MobilePayService.Methods
                     bCClient.BCTenantId = reader.GetString(3);
                     bCClient.accessToken = string.IsNullOrEmpty(reader.GetString(4)) ? "" : reader.GetString(4);
                     bCClient.refreshToken = string.IsNullOrEmpty(reader.GetString(5)) ? "" : reader.GetString(5);
-                    bCClient.enableCallback = string.IsNullOrEmpty(reader.GetString(6)) ? "" :reader.GetString(6);
-                    
+                    bCClient.enableCallback = string.IsNullOrEmpty(reader.GetString(6)) ? "" : reader.GetString(6);
+
                 }
 
             }
@@ -328,7 +327,7 @@ namespace MobilePayService.Methods
             int x = 0;
             WithConnection(conn =>
             {
-                x = GenerateInvoice(invoice,conn);
+                x = GenerateInvoice(invoice, conn);
             });
             return x;
         }
@@ -357,7 +356,6 @@ namespace MobilePayService.Methods
         {
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             var query = "if exists(select 1 from UserAgreement   where  [AgreementId] = '" + agreement.Agreement_Id + "' ) Begin Select -1 End Else Begin insert into UserAgreement (AgreementId,BCTenantId) OUTPUT INSERTED.ID values('" + agreement.Agreement_Id + "','" + agreement.BcTenantId + "') End;";
-            //var query = "insert into UserAgreement (AgreementId,BCTenantId) OUTPUT INSERTED.ID values('" + agreement.AgreementId + "','" + agreement.BcTenantId + "')";
             SqlCommand sqlCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
             var val = sqlDataAdapter.InsertCommand.ExecuteScalar();
@@ -367,17 +365,16 @@ namespace MobilePayService.Methods
 
         public static void UpdateAgreement(AgreementModel agreement)
         {
-            int x = 0;
             WithConnection(conn =>
             {
-               UpdateAgreement(agreement, conn);
+                UpdateAgreement(agreement, conn);
             });
         }
 
         private static void UpdateAgreement(AgreementModel agreement, SqlConnection conn)
         {
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            var query = "Update UserAgreement Set status='" + agreement.Status + "', StatusText= '" + agreement.Status_Text + "', StatusCode= '" + agreement.Status_Code + "', ExternalId= '" + agreement.External_Id + "' ,TimesStamp='"+agreement.Timestamp+"' where AgreementId='" + agreement.Agreement_Id + "'";
+            var query = "Update UserAgreement Set status='" + agreement.Status + "', StatusText= '" + agreement.Status_Text + "', StatusCode= '" + agreement.Status_Code + "', ExternalId= '" + agreement.External_Id + "' ,TimesStamp='" + agreement.Timestamp + "' where AgreementId='" + agreement.Agreement_Id + "'";
             SqlCommand sqlCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand.ExecuteNonQuery();
