@@ -18,12 +18,6 @@ namespace MobilePayService.Controllers
         private new readonly HttpServer Server = null;
         readonly string REDIRECT_URL = ConfigurationManager.AppSettings["RedirectUrl"].ToString();
 
-        //private void mythread1()
-        //{
-        //    BCClientModel bcClient = new BCClientModel();
-        //    proxy = new HttpProxyServer();
-        //    proxy.SimpleListenerExample(bcClient.redirect_uri);
-        //}
         public MobilePayIndexController()
         {
             Server = new HttpProxyServer();
@@ -141,12 +135,8 @@ namespace MobilePayService.Controllers
         }
 
         public string PostInvoice(InvoiceModel invoice, string responsebody)
-        {
-            //InvoiceModel invoice = lstInvoice[0];            
+        {          
             string str = "Thanks!";
-            //try
-            //{
-
             DBManager.VerifyInvoice(invoice, callback =>
             {
                 if (callback != null)
@@ -270,24 +260,11 @@ namespace MobilePayService.Controllers
 
         private string GenerateAuthURL(BCClientModel content)
         {
-            //ThreadStart starter = new ThreadStart(mythread1);
-
-            //starter += () =>
-            //{
-            //    Redirect();
-            //};
-
-            //Thread _thread = new Thread(starter) { IsBackground = true };
-            //_thread.Start();
-
-            // return "";
-
             string url = "";
             BCClientModel bcClient = new BCClientModel();
             bcClient.userName = content.userName;
             bcClient.password = content.password;
             bcClient.BCTenantId = content.BCTenantId;
-            // "https://api.businesscentral.dynamics.com/v2.0/a6aec78e-8b25-4bc0-8e2f-2ab576f0fa66/batchflow4-sandbox/WS/CRONUS%20Danmark%20A%2FS/Codeunit/AgreementCallBack";
             bcClient.enableCallback = string.IsNullOrEmpty(content.enableCallback) ? "false" : content.enableCallback;
             bcClient.scope = content.scope;
             proxy = new HttpProxyServer();
