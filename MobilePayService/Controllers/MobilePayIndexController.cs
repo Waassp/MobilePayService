@@ -4,6 +4,7 @@ using MobilePayService.RestAPI;
 using Newtonsoft.Json;
 using System;
 using System.Configuration;
+using System.Threading;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -14,8 +15,8 @@ namespace MobilePayService.Controllers
     public class MobilePayIndexController : Controller
     {
         HttpProxyServer proxy = null;
-        public HttpServer Server = null;
-        string REDIRECT_URL = ConfigurationManager.AppSettings["RedirectUrl"].ToString();
+        private new readonly HttpServer Server = null;
+        readonly string REDIRECT_URL = ConfigurationManager.AppSettings["RedirectUrl"].ToString();
 
         //private void mythread1()
         //{
@@ -23,14 +24,19 @@ namespace MobilePayService.Controllers
         //    proxy = new HttpProxyServer();
         //    proxy.SimpleListenerExample(bcClient.redirect_uri);
         //}
-
+        public MobilePayIndexController()
+        {
+            Server = new HttpProxyServer();
+        }
         public string GetBaseUrl()
         {
             var request = HttpContext.Request;
             var appUrl = HttpRuntime.AppDomainAppVirtualPath;
 
             if (appUrl != "/")
+            {
                 appUrl = "/" + appUrl;
+            }
 
             var baseUrl = string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, appUrl);
 
@@ -76,9 +82,9 @@ namespace MobilePayService.Controllers
             int insertedId = 0;
             string baseURL = GetBaseUrl();
             string returnedURL = GenerateAuthURL(content);
-            
-            Server.Start(REDIRECT_URL);
 
+            Server.Start(REDIRECT_URL);
+            Thread.Sleep(2);
             try
             {
                 SessionUrl su = new SessionUrl();
@@ -110,13 +116,19 @@ namespace MobilePayService.Controllers
                 {
 
                     if (status.Equals("S"))
+                    {
                         id = DBManager.GenerateInvoice(invoice);
+                    }
 
                     if (id == 0)
+                    {
                         str = "ERROR on generating invoice!";
-                    if (id == -1)
-                        str = "Invoice URL Already Exist !";
+                    }
 
+                    if (id == -1)
+                    {
+                        str = "Invoice URL Already Exist !";
+                    }
                 });
 
             }
@@ -141,7 +153,9 @@ namespace MobilePayService.Controllers
                 {
                     proxy = new HttpProxyServer();
                     if (callback.enableCallback.Equals("true"))
+                    {
                         proxy.PostInvoice(callback, invoice, responsebody);
+                    }
                 }
                 else
                 {
@@ -163,13 +177,19 @@ namespace MobilePayService.Controllers
                 {
 
                     if (status.Equals("S"))
+                    {
                         id = DBManager.InsertAgreement(agreement);
+                    }
 
                     if (id == 0)
+                    {
                         str = "ERROR on creating agreement!";
-                    if (id == -1)
-                        str = "Agreement Id already Exist !";
+                    }
 
+                    if (id == -1)
+                    {
+                        str = "Agreement Id already Exist !";
+                    }
                 });
 
             }
@@ -184,7 +204,7 @@ namespace MobilePayService.Controllers
         [System.Web.Mvc.HttpPost]
         public string UpdateAgreementStatus([FromBody] AgreementModel agreement)
         {
-            int id = 0; string str = "Thanks!";
+            string str = "Thanks!";
             try
             {
                 DBManager.VerifyAgreement(agreement.Agreement_Id, callback =>
@@ -195,7 +215,9 @@ namespace MobilePayService.Controllers
                         DBManager.UpdateAgreement(agreement);
                         proxy = new HttpProxyServer();
                         if (callback.enableCallback.Equals("true"))
+                        {
                             proxy.PostAgreement(callback, agreement);
+                        }
                     }
                     else
                     {
@@ -258,13 +280,14 @@ namespace MobilePayService.Controllers
             //Thread _thread = new Thread(starter) { IsBackground = true };
             //_thread.Start();
 
-
+            // return "";
 
             string url = "";
             BCClientModel bcClient = new BCClientModel();
             bcClient.userName = content.userName;
             bcClient.password = content.password;
-            bcClient.BCTenantId = content.BCTenantId;// "https://api.businesscentral.dynamics.com/v2.0/a6aec78e-8b25-4bc0-8e2f-2ab576f0fa66/batchflow4-sandbox/WS/CRONUS%20Danmark%20A%2FS/Codeunit/AgreementCallBack";
+            bcClient.BCTenantId = content.BCTenantId;
+            // "https://api.businesscentral.dynamics.com/v2.0/a6aec78e-8b25-4bc0-8e2f-2ab576f0fa66/batchflow4-sandbox/WS/CRONUS%20Danmark%20A%2FS/Codeunit/AgreementCallBack";
             bcClient.enableCallback = string.IsNullOrEmpty(content.enableCallback) ? "false" : content.enableCallback;
             bcClient.scope = content.scope;
             proxy = new HttpProxyServer();

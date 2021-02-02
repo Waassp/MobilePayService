@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
+﻿using System.Configuration;
 
 namespace MobilePayService.Models
 {
@@ -54,12 +50,7 @@ namespace MobilePayService.Models
             }
         }
         public string scope { get; set; }
-        //{
-        //    get
-        //    {
-        //        return "openid%20subscriptions%20offline_access";
-        //    }
-        //}
+
         public string code_challenge_method
         {
             get

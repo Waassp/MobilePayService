@@ -1091,6 +1091,7 @@ D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Buffe
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.IdentityModel.Tokens.Jwt.dll
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Memory.dll
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Net.Http.Formatting.dll
+D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Net.Http.WinHttpHandler.dll
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Numerics.Vectors.dll
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Runtime.CompilerServices.Unsafe.dll
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Text.Encodings.Web.dll
@@ -1133,6 +1134,7 @@ D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\Newtonsoft.J
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Buffers.xml
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.IdentityModel.Tokens.Jwt.xml
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Memory.xml
+D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Net.Http.WinHttpHandler.xml
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Numerics.Vectors.xml
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Text.Encodings.Web.xml
@@ -1149,10 +1151,7 @@ D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Web.H
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Web.Http.WebHost.xml
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\Org.Mentalis.Security.Cryptography.xml
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\Mono.Math.xml
-D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csprojAssemblyReference.cache
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csproj.CoreCompileInputs.cache
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csproj.CopyComplete
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.dll
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.pdb
-D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Net.Http.WinHttpHandler.dll
-D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Net.Http.WinHttpHandler.xml

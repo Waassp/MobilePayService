@@ -1,18 +1,27 @@
-﻿using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using MobilePayService.Methods;
+﻿using MobilePayService.Methods;
 using MobilePayService.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace MobilePayService.RestAPI
 {
+    public class Http2CustomHandler : WinHttpHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
+        {
+            request.Version = new Version("2.0");
+            return base.SendAsync(request, cancellationToken);
+        }
+    }
     public class HttpProxyServer : HttpServer
     {
         private Uri Url = null;
@@ -30,11 +39,20 @@ namespace MobilePayService.RestAPI
             foreach (Match mech in rx.Matches(formData))
             {
                 if (count == 0)
+                {
                     accessToken.code = mech.Groups[1].Value;
+                }
+
                 if (count == 1)
+                {
                     accessToken.id_token = mech.Groups[1].Value;
+                }
+
                 if (count == 3)
+                {
                     accessToken.state = mech.Groups[0].Value.ToString().Replace('=', ' ').Trim();
+                }
+
                 count++;
             }
 
@@ -54,9 +72,14 @@ namespace MobilePayService.RestAPI
                         PostToClient(clientModel.userName, clientModel.password, clientModel.BCTenantId, model.access_token, model.refresh_token);
 
                         if (!string.IsNullOrEmpty(model.access_token))
+                        {
                             merchantId = GetMerchantId(model.access_token);
+                        }
+
                         if (!string.IsNullOrEmpty(merchantId) && !string.IsNullOrEmpty(model.access_token))
+                        {
                             DBManager.AddMerchantID(merchantId, model);
+                        }
                     }
 
                 });
@@ -75,7 +98,7 @@ namespace MobilePayService.RestAPI
                 output.Write(buffer, 0, buffer.Length);
 
                 output.Close();
-               // HttpServer.Stop();
+                // HttpServer.Stop();
                 //Listener.Stop();
             }
         }
@@ -96,11 +119,13 @@ namespace MobilePayService.RestAPI
                     {
                         merchantId = rd.ReadToEnd();
                         if (!string.IsNullOrEmpty(merchantId))
+                        {
                             merchantId = JsonConvert.DeserializeObject<dynamic>(merchantId)["MerchantId"].Value;
+                        }
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 merchantId = null;
             }
@@ -157,7 +182,7 @@ namespace MobilePayService.RestAPI
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -198,7 +223,7 @@ namespace MobilePayService.RestAPI
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
 
@@ -228,7 +253,7 @@ namespace MobilePayService.RestAPI
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
                 throw;

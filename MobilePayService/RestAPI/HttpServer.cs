@@ -1,15 +1,5 @@
-﻿using MobilePayService.Methods;
-using MobilePayService.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System;
 using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Xml;
 
 namespace MobilePayService.RestAPI
 {
@@ -23,7 +13,7 @@ namespace MobilePayService.RestAPI
     public class HttpServer
     {
         protected HttpListener Listener;
-        protected bool IsStarted = false;
+        //protected bool IsStarted = false;
         public event delReceiveWebRequest ReceiveWebRequest;
 
         public HttpServer()
@@ -48,8 +38,10 @@ namespace MobilePayService.RestAPI
             }
 
             // *** Already running - just leave it in place
-            if (IsStarted)
+            if (Globals.isStarted)
+            {
                 return;
+            }
 
             if (Listener == null)
             {
@@ -57,7 +49,7 @@ namespace MobilePayService.RestAPI
             }
 
             Listener.Prefixes.Add(UrlBase);
-            IsStarted = true;
+            Globals.isStarted = true;
             Listener.Start();
 
             IAsyncResult result = Listener.BeginGetContext(new AsyncCallback(WebRequestCallback), Listener);
@@ -72,18 +64,20 @@ namespace MobilePayService.RestAPI
             {
                 this.Listener.Close();
                 this.Listener = null;
-                this.IsStarted = false;
+                Globals.isStarted = false;
             }
         }
 
         protected void WebRequestCallback(IAsyncResult result)
         {
             if (Listener == null)
+            {
                 return;
+            }
 
             // Get out the context object
             HttpListenerContext context = Listener.EndGetContext(result);
-            
+
             // *** Immediately set up the next context
             Listener.BeginGetContext(new AsyncCallback(WebRequestCallback), Listener);
             ReceiveWebRequest?.Invoke(context);
@@ -95,7 +89,7 @@ namespace MobilePayService.RestAPI
         /// </summary>
         /// <param name="Context"></param>
         protected virtual void ProcessRequest(HttpListenerContext Context)
-        {            
+        {
         }
     }
 }
