@@ -1151,6 +1151,7 @@ D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Web.H
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\System.Web.Http.WebHost.xml
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\Org.Mentalis.Security.Cryptography.xml
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\bin\Mono.Math.xml
+D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csprojAssemblyReference.cache
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csproj.CoreCompileInputs.cache
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.csproj.CopyComplete
 D:\Projects\MobilePayServices\MobilePayService\MobilePayService\obj\Debug\MobilePayService.dll
