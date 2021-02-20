@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Xml;
 
 namespace MobilePayService.RestAPI
@@ -162,7 +163,8 @@ namespace MobilePayService.RestAPI
         internal void PostToClient(string userName, string Password, string url, string AccessToken, string RefreshToken)
         {
             string Cred = userName + ":" + Password;
-            HttpWebRequest request = Common.CreateWebRequest(url, Cred);
+            string soapAction = "urn:microsoft-dynamics-schemas/codeunit/MerchantTokens:PutMerchantTokens";
+            HttpWebRequest request = Common.CreateWebRequest(url, Cred, soapAction);
             XmlDocument soapEnvelopeXml = new XmlDocument();
             soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:mer='urn:microsoft-dynamics-schemas/codeunit/MerchantTokens'> <soapenv:Body> <mer:PutMerchantTokens> <mer:accessToken>" + AccessToken + "</mer:accessToken> <mer:refreshToken>" + RefreshToken + "</mer:refreshToken> </mer:PutMerchantTokens> </soapenv:Body> </soapenv:Envelope>");
 
@@ -205,9 +207,11 @@ namespace MobilePayService.RestAPI
         public void PostInvoice(BCClientModel clientModel, InvoiceModel invoice, string responsebody)
         {
             string Cred = clientModel.userName + ":" + clientModel.password;
-            HttpWebRequest request = Common.CreateWebRequest(invoice.InvoiceCallBackSoapURL, Cred);
+            responsebody =  new JavaScriptSerializer().Serialize(invoice);
+            string invoiceSoapAction = "urn:microsoft-dynamics-schemas/codeunit/Invoice_CallBack:InvoiceCallBack";
+            HttpWebRequest request = Common.CreateWebRequest(invoice.InvoiceCallBackSoapURL, Cred, invoiceSoapAction);
             XmlDocument soapEnvelopeXml = new XmlDocument();
-            soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:mer='urn:microsoft-dynamics-schemas/codeunit/Invoice_CallBack'> <soapenv:Body> <mer:InvoiceCallBack> <mer:invoiceId>" + invoice.InvoiceId + "</mer:invoiceId> <mer:status>" + invoice.Status + "</mer:status> <mer:errorCode>" + invoice.ErrorCode + "</mer:errorCode> <mer:errorMessage>" + invoice.ErrorMessage + "</mer:errorMessage> <mer:date>" + invoice.Date + "</mer:date> <mer:response_Body>" + responsebody + "</mer:response_Body> </mer:InvoiceCallBack> </soapenv:Body> </soapenv:Envelope>");
+            soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:inv='urn:microsoft-dynamics-schemas/codeunit/Invoice_CallBack'> <soapenv:Body> <inv:InvoiceCallBack> <inv:invoiceId>" + invoice.InvoiceId + "</inv:invoiceId> <inv:status>" + invoice.Status + "</inv:status> <inv:errorCode>" + invoice.ErrorCode + "</inv:errorCode> <inv:errorMessage>" + invoice.ErrorMessage + "</inv:errorMessage> <inv:date>" + invoice.Date + "</inv:date> <inv:response_Body>" + responsebody + "</inv:response_Body> </inv:InvoiceCallBack> </soapenv:Body> </soapenv:Envelope>");
             using (Stream stream = request.GetRequestStream())
             {
                 soapEnvelopeXml.Save(stream);
@@ -223,7 +227,7 @@ namespace MobilePayService.RestAPI
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
 
@@ -233,7 +237,7 @@ namespace MobilePayService.RestAPI
         {
 
             string Cred = clientModel.userName + ":" + clientModel.password;
-            HttpWebRequest request = Common.CreateWebRequest(clientModel.BCTenantId, Cred);
+            HttpWebRequest request = Common.CreateWebRequest(clientModel.BCTenantId, Cred,null);
             XmlDocument soapEnvelopeXml = new XmlDocument();
             soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:mer='urn:microsoft-dynamics-schemas/codeunit/MerchantTokens'> <soapenv:Body> <mer:AgreementStatus> <mer:agreementId>" + agreement.Agreement_Id + "</mer:agreementId> <mer:status>" + agreement.Status + "</mer:status> <mer:statusText>" + agreement.Status_Text + "</mer:statusText> <mer:statusCode>" + agreement.Status_Code + "</mer:statusCode> <mer:callBackTime>" + agreement.Timestamp + "</mer:callBackTime> </mer:AgreementStatus> </soapenv:Body> </soapenv:Envelope>");
 

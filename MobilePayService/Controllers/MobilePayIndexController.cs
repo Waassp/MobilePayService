@@ -134,25 +134,43 @@ namespace MobilePayService.Controllers
             return str;
         }
 
-        public string PostInvoice(InvoiceModel invoice, string responsebody)
-        {          
-            string str = "Thanks!";
-            DBManager.VerifyInvoice(invoice, callback =>
+        public string PostInvoice(InvoiceModel[] invoice, string responsebody)
+        {
+            Thread.Sleep(2000);
+            string str = "";
+            try
             {
-                if (callback != null)
+                foreach (var item in invoice)
                 {
-                    proxy = new HttpProxyServer();
-                    if (callback.enableCallback.Equals("true"))
+                    if (item.Status == "Invalid")
                     {
-                        proxy.PostInvoice(callback, invoice, responsebody);
+                        continue;
                     }
+                    DBManager.VerifyInvoice(item, callback =>
+                    {
+                        if (callback != null)
+                        {
+                            proxy = new HttpProxyServer();
+                            if (callback.enableCallback.Equals("true"))
+                            {
+                                proxy.PostInvoice(callback, item, responsebody);
+                            }
+                        }
+                        else
+                        {
+                            str = "Invalid invoice id !" + item.InvoiceId;
+                        }
+                    });
                 }
-                else
-                {
-                    str = "Invalid invoice id !" + invoice.InvoiceId;
-                }
-            });
-            return str;
+                str = "Thanks!";
+                return str;
+            }
+            catch (Exception ex)
+            {
+                str = "Error occured, return this error to integrator MDCNordic!";
+                return str;
+            }
+
         }
 
 

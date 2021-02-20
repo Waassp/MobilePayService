@@ -10,6 +10,6 @@ namespace MobilePayService.Models
         public string Status { get; set; }
         public int ErrorCode { get; set; }
         public string ErrorMessage { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
     }
 }

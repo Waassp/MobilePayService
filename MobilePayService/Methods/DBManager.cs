@@ -222,6 +222,7 @@ namespace MobilePayService.Methods
 
         public static void VerifyInvoice(InvoiceModel Invoice, SqlConnection conn, Action<BCClientModel> callback)
         {
+            UpdateMobilePayDataInDB(Invoice.InvoiceId,Invoice.Date, conn);
             SqlCommand sqlCommand;
             string query = "select BCTenantURL,invoiceUrl from UserInvoice where InvoiceId='" + Invoice.InvoiceId + "'";
             string bcTenantId = "";
@@ -250,6 +251,18 @@ namespace MobilePayService.Methods
                 callback(null);
             }
         }
+
+        private static void UpdateMobilePayDataInDB(string id, string date, SqlConnection conn)
+        {
+            SqlCommand sqlCommand;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            string query = "update UserInvoice Set Date='" + date + "' where InvoiceId='" + id + "'";
+            sqlCommand = new SqlCommand(query, conn);
+            sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
+            sqlDataAdapter.InsertCommand.ExecuteNonQuery();
+            sqlCommand.Dispose();
+        }
+
         private static void UpdateInvoice(InvoiceModel invoice, SqlConnection conn)
         {
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
@@ -334,8 +347,9 @@ namespace MobilePayService.Methods
 
         private static int GenerateInvoice(InvoiceModel invoice, SqlConnection conn)
         {
+
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            var query = "if exists(select 1 from UserInvoice   where  [InvoiceId] = '" + invoice.InvoiceId + "' ) Begin Select -1 End Else Begin insert into UserInvoice (invoiceId,invoiceUrl,BCTenantURL) OUTPUT INSERTED.ID values('" + invoice.InvoiceId + "','" + invoice.InvoiceCallBackSoapURL + "','" + invoice.BCTenantURL + "') End;";
+            var query = "if exists(select 1 from UserInvoice   where  [InvoiceId] = '" + invoice.InvoiceId + "' ) Begin Select -1 End Else Begin insert into UserInvoice (invoiceId,invoiceUrl,BCTenantURL,Date) OUTPUT INSERTED.ID values('" + invoice.InvoiceId + "','" + invoice.InvoiceCallBackSoapURL + "','" + invoice.BCTenantURL + "','" + invoice.Date + "') End;";
             SqlCommand sqlCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
             var val = sqlDataAdapter.InsertCommand.ExecuteScalar();
