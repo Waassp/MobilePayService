@@ -247,6 +247,7 @@
     <Compile Include="Methods\DBManager.cs" />
     <Compile Include="Models\AccessTokenModel.cs" />
     <Compile Include="Models\AgreementModel.cs" />
+    <Compile Include="Models\AzureModel.cs" />
     <Compile Include="Models\BCClientModel.cs" />
     <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Models\SessionUrl.cs" />

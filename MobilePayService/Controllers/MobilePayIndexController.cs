@@ -16,7 +16,8 @@ namespace MobilePayService.Controllers
     {
         HttpProxyServer proxy = null;
         private new readonly HttpServer Server = null;
-        readonly string REDIRECT_URL = ConfigurationManager.AppSettings["RedirectUrl"].ToString();
+        readonly string MDCNORDIC_REDIRECT_URL = ConfigurationManager.AppSettings["RedirectUrl"].ToString();
+        readonly string AZURE_REDIRECT_URL = ConfigurationManager.AppSettings["LocalRedirectUrl"].ToString();
 
         public MobilePayIndexController()
         {
@@ -40,7 +41,17 @@ namespace MobilePayService.Controllers
         public ActionResult Index()
         {
             int key = Convert.ToInt32(HttpContext.Request.QueryString["sessionId"]);
-            ViewBag.Url = DBManager.GetUrlByKey(key);
+
+            if (key==0)
+            {
+                ViewBag.Name = "Azure Onboarding";
+                ViewBag.Url = "https://login.microsoftonline.com/c59a4e0a-d77a-4a88-86b1-198a97d3b88d/oauth2/v2.0/authorize?client_id=199e89c3-4153-4e87-946e-c3e4126b417d&response_type=code&redirect_uri=http://localhost:4972/MobilePayIndex/redirect&response_mode=query&scope=https://api.businesscentral.dynamics.com/.default%20offline_access&prompt=consent";
+            }
+            else
+            {
+                ViewBag.Url = DBManager.GetUrlByKey(key);
+            }
+          
 
             return View("Welcome");
         }
@@ -77,7 +88,7 @@ namespace MobilePayService.Controllers
             string baseURL = GetBaseUrl();
             string returnedURL = GenerateAuthURL(content);
 
-            Server.Start(REDIRECT_URL);
+            Server.Start(MDCNORDIC_REDIRECT_URL);
             Thread.Sleep(2);
             try
             {
@@ -93,6 +104,33 @@ namespace MobilePayService.Controllers
             string dataToPassWithUrl = baseURL + "/MobilePayIndex" + "/?sessionId=" + insertedId;
 
             return Content(dataToPassWithUrl);
+        }
+
+        [System.Web.Mvc.HttpPost]
+        public ActionResult Azurelogin([FromBody] AzureModel azModel)
+        {
+            //int insertedId = 0;
+            string baseURL = GetBaseUrl();
+            //string returnedURL = GenerateAuthURL(azModel.);
+
+            Server.Start(AZURE_REDIRECT_URL);
+            Thread.Sleep(2);
+            //try
+            //{
+            //    SessionUrl su = new SessionUrl();
+            //    su.url = returnedURL;
+            //    su.bcTenantId = content.password;
+            //    insertedId = DBManager.InsertRecordSession(su);
+            //}
+            //catch (Exception eexx)
+            //{
+            //    throw eexx;
+            //}
+            string dataToPassWithUrl = baseURL + "/MobilePayIndex" + "/?azureOnboarding=1";
+
+            return Content(dataToPassWithUrl);
+            //ViewBag.Url = azModel.AzureLoginUrl;
+            //return View("Welcome");
         }
 
 

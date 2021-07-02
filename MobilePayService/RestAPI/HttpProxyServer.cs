@@ -227,7 +227,7 @@ namespace MobilePayService.RestAPI
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
 
