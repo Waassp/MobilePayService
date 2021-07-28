@@ -271,49 +271,69 @@ namespace MobilePayService.RestAPI
         public async Task<string> SendLogingRequestAsync(BCClientModel clientModel, Action<BCClientModel> callback)
         {
             string HtmlResult = "";
-            HttpResponseMessage response = new HttpResponseMessage();
-            if (!string.IsNullOrEmpty(clientModel.userName)|| !string.IsNullOrEmpty(clientModel.password))
-            {
+            // HttpResponseMessage response = new HttpResponseMessage();
+            
+           // if (!string.IsNullOrEmpty(clientModel.userName)|| !string.IsNullOrEmpty(clientModel.password))
+            //{
                 AuthCodeMethod.GetAccessTokenAsync(clientModel, model =>
                 {
                     Url = new Uri(clientModel.url);
                     parameters = model.url + "?response_type=" + model.response_type + "&client_id=" + model.client_id + "&redirect_uri=" + model.redirect_uri + "&scope=openid" + model.scope + "offline_access&state=" + clientModel.state +
                         "&code_challenge=" + model.code_challenge + "&code_challenge_method=" + model.code_challenge_method + "&nonce=" + model.nonce + "&response_mode=form_post";
 
-                    using (WebClient wc = new WebClient())
+                    if (!string.IsNullOrEmpty(clientModel.userName) || !string.IsNullOrEmpty(clientModel.password))
                     {
-                        HtmlResult = wc.DownloadString(parameters);
+                        string azaccesstoken = GetAccessToken(clientModel.AzTenantId, clientModel.AzClientId, clientModel.AzClientSecret);
+                        if (!string.IsNullOrEmpty(azaccesstoken))
+                        {
+                            Task<string> response = CallAuthApi(azaccesstoken, clientModel.url);
+                        }
                     }
+                    else
+                    {
+                        using (WebClient wc = new WebClient())
+                        {
+                            HtmlResult = wc.DownloadString(parameters);
+                        }
+                    }                       
+                   
                     callback(model);
                 });
 
-            }
-            else
+          //  }
+          //  else
+          //  {
+              // string azaccesstoken= GetAccessToken(clientModel.AzTenantId, clientModel.AzClientId,clientModel.AzClientSecret);
+                //if (!string.IsNullOrEmpty(azaccesstoken))
+                //{
+                //   Task<string> response= CallAuthApi(azaccesstoken, clientModel.url);
+                //}
+          //      }
+
+            return parameters; 
+
+        }
+        public async Task<string> CallAuthApi(string azAccessToken, string url)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+            using (var client = new HttpClient())
             {
-               string azaccesstoken= GetAccessToken(clientModel.AzTenantId, clientModel.AzClientId,clientModel.AzClientSecret);
-                if (!string.IsNullOrEmpty(azaccesstoken))
-                {
-                    using (var client = new HttpClient())
-                    {
-                        // Initialization  
-                        string authorization = azaccesstoken;
-                        // Setting Authorization.  
-                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authorization);
-                        // Setting Base address.  
-                        client.BaseAddress = new Uri(clientModel.url);
-                        // Setting content type.  
-                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        // Initialization.  
-                        //HttpResponseMessage response = new HttpResponseMessage();
-                        // HTTP GET  
-                         response = await client.GetAsync("api/WebApi").ConfigureAwait(false);
-                        Thread.Sleep(3);
-                    }
-                }
-                }
+                // Initialization  
+                string authorization = azAccessToken;
+                // Setting Authorization.  
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authorization);
+                // Setting Base address.  
+                client.BaseAddress = new Uri(url);
+                // Setting content type.  
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                // Initialization.  
+                //HttpResponseMessage response = new HttpResponseMessage();
+                // HTTP GET  
+                response = await client.GetAsync("api/WebApi").ConfigureAwait(false);
 
-            return response.ToString();
+                return response;
 
+            }
         }
         public static string GetAccessToken(string TenantId,string azClientId,string azClientSecret)
         {
