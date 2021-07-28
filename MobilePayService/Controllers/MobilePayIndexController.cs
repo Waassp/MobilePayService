@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.Configuration;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -75,8 +76,9 @@ namespace MobilePayService.Controllers
         {
             int insertedId = 0;
             string baseURL = GetBaseUrl();
-            string returnedURL = GenerateAuthURL(content);
-
+            //string val = HttpProxyServer.GetAccessToken("", "", "");
+            string returnedURL = GenerateAuthURL(content);            
+            
             Server.Start(REDIRECT_URL);
             Thread.Sleep(2);
             try
@@ -278,7 +280,7 @@ namespace MobilePayService.Controllers
 
         private string GenerateAuthURL(BCClientModel content)
         {
-            string url = "";
+            Task<string> url = null;
             BCClientModel bcClient = new BCClientModel();
             bcClient.userName = content.userName;
             bcClient.password = content.password;
@@ -288,7 +290,7 @@ namespace MobilePayService.Controllers
             proxy = new HttpProxyServer();
             try
             {
-                url = proxy.SendLogingRequest(bcClient, model =>
+                url = proxy.SendLogingRequestAsync(bcClient, model =>
                 {
                     DBManager.InsertRecord(model);
                 });
@@ -298,7 +300,7 @@ namespace MobilePayService.Controllers
             {
                 throw eexx;
             }
-            return url;
+            return url.ToString();
         }
     }
 }

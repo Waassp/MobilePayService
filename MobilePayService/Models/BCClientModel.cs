@@ -13,6 +13,10 @@ namespace MobilePayService.Models
         public string enableCallback { get; set; }
         public string accessToken { get; set; }
         public string refreshToken { get; set; }
+        public string AzClientSecret { get; set; }
+        public string AzTenantId { get; set; }
+        public string AzClientId { get; set; }
+        public string AzAccessToken { get; set; }
         public string extractedTenantId
         {
             get

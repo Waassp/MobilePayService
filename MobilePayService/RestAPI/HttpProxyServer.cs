@@ -1,14 +1,19 @@
-﻿using MobilePayService.Methods;
+﻿using Microsoft.Identity.Client;
+using MobilePayService.Methods;
 using MobilePayService.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IdentityModel.Tokens;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Xml;
@@ -263,23 +268,76 @@ namespace MobilePayService.RestAPI
                 throw;
             }
         }
-        public string SendLogingRequest(BCClientModel clientModel, Action<BCClientModel> callback)
+        public async Task<string> SendLogingRequestAsync(BCClientModel clientModel, Action<BCClientModel> callback)
         {
             string HtmlResult = "";
-            AuthCodeMethod.GetAccessTokenAsync(clientModel, model =>
+            HttpResponseMessage response = new HttpResponseMessage();
+            if (!string.IsNullOrEmpty(clientModel.userName)|| !string.IsNullOrEmpty(clientModel.password))
             {
-                Url = new Uri(clientModel.url);
-                parameters = model.url + "?response_type=" + model.response_type + "&client_id=" + model.client_id + "&redirect_uri=" + model.redirect_uri + "&scope=openid" + model.scope + "offline_access&state=" + clientModel.state +
-                    "&code_challenge=" + model.code_challenge + "&code_challenge_method=" + model.code_challenge_method + "&nonce=" + model.nonce + "&response_mode=form_post";
-
-                using (WebClient wc = new WebClient())
+                AuthCodeMethod.GetAccessTokenAsync(clientModel, model =>
                 {
-                    HtmlResult = wc.DownloadString(parameters);
+                    Url = new Uri(clientModel.url);
+                    parameters = model.url + "?response_type=" + model.response_type + "&client_id=" + model.client_id + "&redirect_uri=" + model.redirect_uri + "&scope=openid" + model.scope + "offline_access&state=" + clientModel.state +
+                        "&code_challenge=" + model.code_challenge + "&code_challenge_method=" + model.code_challenge_method + "&nonce=" + model.nonce + "&response_mode=form_post";
+
+                    using (WebClient wc = new WebClient())
+                    {
+                        HtmlResult = wc.DownloadString(parameters);
+                    }
+                    callback(model);
+                });
+
+            }
+            else
+            {
+               string azaccesstoken= GetAccessToken(clientModel.AzTenantId, clientModel.AzClientId,clientModel.AzClientSecret);
+                if (!string.IsNullOrEmpty(azaccesstoken))
+                {
+                    using (var client = new HttpClient())
+                    {
+                        // Initialization  
+                        string authorization = azaccesstoken;
+                        // Setting Authorization.  
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authorization);
+                        // Setting Base address.  
+                        client.BaseAddress = new Uri(clientModel.url);
+                        // Setting content type.  
+                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                        // Initialization.  
+                        //HttpResponseMessage response = new HttpResponseMessage();
+                        // HTTP GET  
+                         response = await client.GetAsync("api/WebApi").ConfigureAwait(false);
+                        Thread.Sleep(3);
+                    }
                 }
-                callback(model);
-            });
-            return parameters;
+                }
+
+            return response.ToString();
 
         }
+        public static string GetAccessToken(string TenantId,string azClientId,string azClientSecret)
+        {
+            //var clientId = "199e89c3-4153-4e87-946e-c3e4126b417d";
+            var authorityUri = $"https://login.microsoftonline.com/c59a4e0a-d77a-4a88-86b1-198a97d3b88d";
+            var scopes = new List<string> { "https://api.businesscentral.dynamics.com/.default" };
+            var clientSecret = "TR--Cy6om_1K4_Wn8XDuPF3u~Ms.9PGV3q";
+
+            //string tenantId = "{tenandId}";
+            //string loginUri = $"https://login.microsoftonline.com/";
+            //var authCtx = new AuthenticationContext(String.Format(CultureInfo.InvariantCulture, loginUri, tenantId));
+
+            var confidentialClient = ConfidentialClientApplicationBuilder
+                   .Create(azClientId)
+                   .WithClientSecret(azClientSecret)
+                   .WithAuthority(new Uri(authorityUri))
+                   .WithRedirectUri("http://localhost:8080/login")
+                   .Build();
+
+            var accessTokenRequest = confidentialClient.AcquireTokenForClient(scopes);
+            var result = accessTokenRequest.ExecuteAsync().Result;
+            var accessToken = result.AccessToken;
+            return accessToken;
+        }
+
     }
 }
