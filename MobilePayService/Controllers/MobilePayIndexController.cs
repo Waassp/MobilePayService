@@ -76,7 +76,6 @@ namespace MobilePayService.Controllers
         {
             int insertedId = 0;
             string baseURL = GetBaseUrl();
-            //string val = HttpProxyServer.GetAccessToken("", "", "");
             string returnedURL = GenerateAuthURL(content);            
             
             Server.Start(REDIRECT_URL);
@@ -280,7 +279,7 @@ namespace MobilePayService.Controllers
 
         private string GenerateAuthURL(BCClientModel content)
         {
-            Task<string> url = null;
+            string url = "";
             BCClientModel bcClient = new BCClientModel();
             bcClient.userName = content.userName;
             bcClient.password = content.password;
@@ -290,7 +289,7 @@ namespace MobilePayService.Controllers
             proxy = new HttpProxyServer();
             try
             {
-                url = proxy.SendLogingRequestAsync(bcClient, model =>
+                url = proxy.SendLogingRequest(bcClient, model =>
                 {
                     DBManager.InsertRecord(model);
                 });
@@ -300,7 +299,7 @@ namespace MobilePayService.Controllers
             {
                 throw eexx;
             }
-            return url.ToString();
+            return url
         }
     }
 }
