@@ -278,7 +278,7 @@ namespace MobilePayService.RestAPI
                 throw;
             }
         }
-        public string SendLogingRequestAsync(BCClientModel clientModel, Action<BCClientModel> callback)
+        public string SendLogingRequest(BCClientModel clientModel, Action<BCClientModel> callback)
         {
             string HtmlResult = "";
             
