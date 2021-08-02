@@ -31,7 +31,8 @@ namespace MobilePayService.RestAPI
     public class HttpProxyServer : HttpServer
     {
         private Uri Url = null;
-        private string parameters = "";
+        private string parameters = ""; 
+        static string apiToken = "";
         protected override void ProcessRequest(HttpListenerContext Context)
         {
             HttpListenerRequest request = Context.Request;
@@ -165,9 +166,13 @@ namespace MobilePayService.RestAPI
 
             callback(model);
         }
-        internal void PostToClient(string userName, string Password, string url, string AccessToken, string RefreshToken)
+        internal void PostToClient(string userName, string Password, string url, string AccessToken, string RefreshToken, string azAccessToken = null)
         {
-            string Cred = userName + ":" + Password;
+            string apiToken = "", Cred="";
+            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(Password))
+                apiToken=GetAccessToken("","","");
+            else 
+            Cred = userName + ":" + Password;
             string soapAction = "urn:microsoft-dynamics-schemas/codeunit/MerchantTokens:PutMerchantTokens";
             HttpWebRequest request = Common.CreateWebRequest(url, Cred, soapAction);
             XmlDocument soapEnvelopeXml = new XmlDocument();
@@ -268,94 +273,59 @@ namespace MobilePayService.RestAPI
                 throw;
             }
         }
-        public async Task<string> SendLogingRequestAsync(BCClientModel clientModel, Action<BCClientModel> callback)
+        public string SendLogingRequestAsync(BCClientModel clientModel, Action<BCClientModel> callback)
         {
             string HtmlResult = "";
-            // HttpResponseMessage response = new HttpResponseMessage();
             
-           // if (!string.IsNullOrEmpty(clientModel.userName)|| !string.IsNullOrEmpty(clientModel.password))
-            //{
                 AuthCodeMethod.GetAccessTokenAsync(clientModel, model =>
                 {
                     Url = new Uri(clientModel.url);
                     parameters = model.url + "?response_type=" + model.response_type + "&client_id=" + model.client_id + "&redirect_uri=" + model.redirect_uri + "&scope=openid" + model.scope + "offline_access&state=" + clientModel.state +
                         "&code_challenge=" + model.code_challenge + "&code_challenge_method=" + model.code_challenge_method + "&nonce=" + model.nonce + "&response_mode=form_post";
 
-                    if (!string.IsNullOrEmpty(clientModel.userName) || !string.IsNullOrEmpty(clientModel.password))
-                    {
-                        string azaccesstoken = GetAccessToken(clientModel.AzTenantId, clientModel.AzClientId, clientModel.AzClientSecret);
-                        if (!string.IsNullOrEmpty(azaccesstoken))
-                        {
-                            Task<string> response = CallAuthApi(azaccesstoken, clientModel.url);
-                        }
-                    }
-                    else
-                    {
+                    
                         using (WebClient wc = new WebClient())
                         {
                             HtmlResult = wc.DownloadString(parameters);
-                        }
-                    }                       
-                   
+                        }                   
+                    
                     callback(model);
                 });
-
-          //  }
-          //  else
-          //  {
-              // string azaccesstoken= GetAccessToken(clientModel.AzTenantId, clientModel.AzClientId,clientModel.AzClientSecret);
-                //if (!string.IsNullOrEmpty(azaccesstoken))
-                //{
-                //   Task<string> response= CallAuthApi(azaccesstoken, clientModel.url);
-                //}
-          //      }
+            if (string.IsNullOrEmpty(clientModel.userName) || string.IsNullOrEmpty(clientModel.password))
+               apiToken =GetAccessToken(clientModel.AzTenantId, clientModel.AzClientId, clientModel.AzClientSecret);
 
             return parameters; 
 
         }
-        public async Task<string> CallAuthApi(string azAccessToken, string url)
-        {
-            HttpResponseMessage response = new HttpResponseMessage();
-            using (var client = new HttpClient())
-            {
-                // Initialization  
-                string authorization = azAccessToken;
-                // Setting Authorization.  
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authorization);
-                // Setting Base address.  
-                client.BaseAddress = new Uri(url);
-                // Setting content type.  
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                // Initialization.  
-                //HttpResponseMessage response = new HttpResponseMessage();
-                // HTTP GET  
-                response = await client.GetAsync("api/WebApi").ConfigureAwait(false);
-
-                return response;
-
-            }
-        }
         public static string GetAccessToken(string TenantId,string azClientId,string azClientSecret)
         {
             //var clientId = "199e89c3-4153-4e87-946e-c3e4126b417d";
+            string accessToken = "";
             var authorityUri = $"https://login.microsoftonline.com/c59a4e0a-d77a-4a88-86b1-198a97d3b88d";
             var scopes = new List<string> { "https://api.businesscentral.dynamics.com/.default" };
             var clientSecret = "TR--Cy6om_1K4_Wn8XDuPF3u~Ms.9PGV3q";
-
             //string tenantId = "{tenandId}";
             //string loginUri = $"https://login.microsoftonline.com/";
             //var authCtx = new AuthenticationContext(String.Format(CultureInfo.InvariantCulture, loginUri, tenantId));
-
-            var confidentialClient = ConfidentialClientApplicationBuilder
+            try
+            {
+                var confidentialClient = ConfidentialClientApplicationBuilder
                    .Create(azClientId)
                    .WithClientSecret(azClientSecret)
                    .WithAuthority(new Uri(authorityUri))
                    .WithRedirectUri("http://localhost:8080/login")
                    .Build();
 
-            var accessTokenRequest = confidentialClient.AcquireTokenForClient(scopes);
-            var result = accessTokenRequest.ExecuteAsync().Result;
-            var accessToken = result.AccessToken;
+                var accessTokenRequest = confidentialClient.AcquireTokenForClient(scopes);
+                var result = accessTokenRequest.ExecuteAsync().Result;
+                accessToken = result.AccessToken;
+
+            }
+            catch (Exception ex)
+            {
+                accessToken = "";
+            }
+            
             return accessToken;
         }
 
