@@ -169,12 +169,17 @@ namespace MobilePayService.RestAPI
         internal void PostToClient(string userName, string Password, string url, string AccessToken, string RefreshToken, string azAccessToken = null)
         {
             string apiToken = "", Cred="";
-            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(Password))
-                apiToken=GetAccessToken("","","");
-            else 
-            Cred = userName + ":" + Password;
+            bool auth2 = false;
+            if (!string.IsNullOrEmpty(userName) || !string.IsNullOrEmpty(Password))
+                Cred = userName + ":" + Password;
+            else
+            {
+                Cred = apiToken;
+                auth2 = true;
+            }
+                
             string soapAction = "urn:microsoft-dynamics-schemas/codeunit/MerchantTokens:PutMerchantTokens";
-            HttpWebRequest request = Common.CreateWebRequest(url, Cred, soapAction);
+            HttpWebRequest request = Common.CreateWebRequest(url, Cred, soapAction,auth2);
             XmlDocument soapEnvelopeXml = new XmlDocument();
             soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:mer='urn:microsoft-dynamics-schemas/codeunit/MerchantTokens'> <soapenv:Body> <mer:PutMerchantTokens> <mer:accessToken>" + AccessToken + "</mer:accessToken> <mer:refreshToken>" + RefreshToken + "</mer:refreshToken> </mer:PutMerchantTokens> </soapenv:Body> </soapenv:Envelope>");
 
