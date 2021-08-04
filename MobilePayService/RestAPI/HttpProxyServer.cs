@@ -166,20 +166,20 @@ namespace MobilePayService.RestAPI
 
             callback(model);
         }
-        internal void PostToClient(string userName, string Password, string url, string AccessToken, string RefreshToken, string azAccessToken = null)
+        internal void PostToClient(string userName, string Password, string url, string AccessToken, string RefreshToken)
         {
-            string apiToken = "", Cred="";
+            string Cred="";
             bool auth2 = false;
             if (!string.IsNullOrEmpty(userName) || !string.IsNullOrEmpty(Password))
                 Cred = userName + ":" + Password;
             else
             {
-                Cred = apiToken;
+                Cred = Globals.azAccessToken;
                 auth2 = true;
             }
                 
             string soapAction = "urn:microsoft-dynamics-schemas/codeunit/MerchantTokens:PutMerchantTokens";
-            HttpWebRequest request = Common.CreateWebRequest(url, Cred, soapAction,auth2);
+            WebRequest request = Common.CreateWebRequest(url, Cred, soapAction,auth2);
             XmlDocument soapEnvelopeXml = new XmlDocument();
             soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:mer='urn:microsoft-dynamics-schemas/codeunit/MerchantTokens'> <soapenv:Body> <mer:PutMerchantTokens> <mer:accessToken>" + AccessToken + "</mer:accessToken> <mer:refreshToken>" + RefreshToken + "</mer:refreshToken> </mer:PutMerchantTokens> </soapenv:Body> </soapenv:Envelope>");
 
@@ -224,7 +224,7 @@ namespace MobilePayService.RestAPI
             string Cred = clientModel.userName + ":" + clientModel.password;
             responsebody =  new JavaScriptSerializer().Serialize(invoice);
             string invoiceSoapAction = "urn:microsoft-dynamics-schemas/codeunit/Invoice_CallBack:InvoiceCallBack";
-            HttpWebRequest request = Common.CreateWebRequest(invoice.InvoiceCallBackSoapURL, Cred, invoiceSoapAction);
+            HttpWebRequest request = (HttpWebRequest)Common.CreateWebRequest(invoice.InvoiceCallBackSoapURL, Cred, invoiceSoapAction);
             XmlDocument soapEnvelopeXml = new XmlDocument();
             soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:inv='urn:microsoft-dynamics-schemas/codeunit/Invoice_CallBack'> <soapenv:Body> <inv:InvoiceCallBack> <inv:invoiceId>" + invoice.InvoiceId + "</inv:invoiceId> <inv:status>" + invoice.Status + "</inv:status> <inv:errorCode>" + invoice.ErrorCode + "</inv:errorCode> <inv:errorMessage>" + invoice.ErrorMessage + "</inv:errorMessage> <inv:date>" + invoice.Date + "</inv:date> <inv:response_Body>" + responsebody + "</inv:response_Body> </inv:InvoiceCallBack> </soapenv:Body> </soapenv:Envelope>");
             using (Stream stream = request.GetRequestStream())
@@ -252,7 +252,7 @@ namespace MobilePayService.RestAPI
         {
 
             string Cred = clientModel.userName + ":" + clientModel.password;
-            HttpWebRequest request = Common.CreateWebRequest(clientModel.BCTenantId, Cred,null);
+            HttpWebRequest request = (HttpWebRequest)Common.CreateWebRequest(clientModel.BCTenantId, Cred,null);
             XmlDocument soapEnvelopeXml = new XmlDocument();
             soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:mer='urn:microsoft-dynamics-schemas/codeunit/MerchantTokens'> <soapenv:Body> <mer:AgreementStatus> <mer:agreementId>" + agreement.Agreement_Id + "</mer:agreementId> <mer:status>" + agreement.Status + "</mer:status> <mer:statusText>" + agreement.Status_Text + "</mer:statusText> <mer:statusCode>" + agreement.Status_Code + "</mer:statusCode> <mer:callBackTime>" + agreement.Timestamp + "</mer:callBackTime> </mer:AgreementStatus> </soapenv:Body> </soapenv:Envelope>");
 
@@ -297,21 +297,17 @@ namespace MobilePayService.RestAPI
                     callback(model);
                 });
             if (string.IsNullOrEmpty(clientModel.userName) || string.IsNullOrEmpty(clientModel.password))
-               apiToken =GetAccessToken(clientModel.AzTenantId, clientModel.AzClientId, clientModel.AzClientSecret);
+                Globals.azAccessToken = GetAccessToken(clientModel.AzTenantId, clientModel.AzClientId, clientModel.AzClientSecret);
 
             return parameters; 
 
         }
         public static string GetAccessToken(string TenantId,string azClientId,string azClientSecret)
-        {
-            //var clientId = "199e89c3-4153-4e87-946e-c3e4126b417d";
+        {            
             string accessToken = "";
-            var authorityUri = $"https://login.microsoftonline.com/c59a4e0a-d77a-4a88-86b1-198a97d3b88d";
+            var authorityUri = $"https://login.microsoftonline.com/{TenantId}";
             var scopes = new List<string> { "https://api.businesscentral.dynamics.com/.default" };
-            var clientSecret = "TR--Cy6om_1K4_Wn8XDuPF3u~Ms.9PGV3q";
-            //string tenantId = "{tenandId}";
-            //string loginUri = $"https://login.microsoftonline.com/";
-            //var authCtx = new AuthenticationContext(String.Format(CultureInfo.InvariantCulture, loginUri, tenantId));
+            
             try
             {
                 var confidentialClient = ConfidentialClientApplicationBuilder

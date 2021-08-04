@@ -284,6 +284,9 @@ namespace MobilePayService.Controllers
             bcClient.userName = content.userName;
             bcClient.password = content.password;
             bcClient.BCTenantId = content.BCTenantId;
+            bcClient.AzTenantId = content.AzTenantId;
+            bcClient.AzClientId = content.AzClientId;
+            bcClient.AzClientSecret = content.AzClientSecret;
             bcClient.enableCallback = string.IsNullOrEmpty(content.enableCallback) ? "false" : content.enableCallback;
             bcClient.scope = content.scope;
             proxy = new HttpProxyServer();
@@ -299,7 +302,7 @@ namespace MobilePayService.Controllers
             {
                 throw eexx;
             }
-            return url
+            return url;
         }
     }
 }

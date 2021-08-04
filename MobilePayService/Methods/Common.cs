@@ -6,19 +6,25 @@ namespace MobilePayService.Methods
 {
     public class Common
     {
-        public static HttpWebRequest CreateWebRequest(String SoapUrl, string Cred, string soapAction,bool auth2=false)
+        public static WebRequest CreateWebRequest(String SoapUrl, string Cred, string soapAction,bool auth2=false)
         {
             string base64Cred = Base64Encode(Cred);
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(SoapUrl);
-            webRequest.Headers.Add(@"SOAPAction: " + soapAction);
-            if(auth2)
-                webRequest.Headers.Add(HttpRequestHeader.Authorization,"Basic " + base64Cred);
-            else
+            WebRequest webRequest = WebRequest.Create(SoapUrl);
+
+            if (auth2)
+            {
                 webRequest.Headers.Add(HttpRequestHeader.Authorization, "Bearer  " + base64Cred);
+            }
+            else
+            {
+                webRequest.Headers.Add(@"SOAPAction: " + soapAction);
+                webRequest.Headers.Add(HttpRequestHeader.Authorization, "Basic " + base64Cred);
+                webRequest.ContentType = "text/xml;charset=\"UTF-8\"";
+                webRequest.Method = "POST";
+            }
+                
 
-            webRequest.ContentType = "text/xml;charset=\"UTF-8\"";
-
-            webRequest.Method = "POST";
+            
             return webRequest;
         }
 
