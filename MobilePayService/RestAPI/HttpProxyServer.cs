@@ -325,7 +325,7 @@ namespace MobilePayService.RestAPI
                    .Create(azClientId)
                    .WithClientSecret(azClientSecret)
                    .WithAuthority(new Uri(authorityUri))
-                   .WithRedirectUri("http://localhost:8080/login")
+                   .WithRedirectUri("https://businesscentral.dynamics.com/OAuthLanding.htm")
                    .Build();
 
                 var accessTokenRequest = confidentialClient.AcquireTokenForClient(scopes);
