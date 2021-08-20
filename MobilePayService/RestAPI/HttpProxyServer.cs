@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.IdentityModel.Tokens;
 using System.IO;
@@ -93,7 +94,17 @@ namespace MobilePayService.RestAPI
             }
             catch (Exception eexx)
             {
-                throw eexx;
+                string logFile = ConfigurationManager.AppSettings["LogFile"];
+
+                if (File.Exists(logFile))
+                {
+
+                    using (StreamWriter sw = File.AppendText(logFile))
+                    {
+                        sw.WriteLine(eexx.Message);
+                        sw.Close();
+                    }
+                }
             }
             finally
             {
@@ -178,7 +189,7 @@ namespace MobilePayService.RestAPI
                 auth2 = true;
             }
                 
-            string soapAction = "urn:microsoft-dynamics-schemas/codeunit/MerchantTokens:PutMerchantTokens";
+            string soapAction = "PutMerchantTokens";
             WebRequest request = Common.CreateWebRequest(url, Cred, soapAction,auth2);
             XmlDocument soapEnvelopeXml = new XmlDocument();
             soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:mer='urn:microsoft-dynamics-schemas/codeunit/MerchantTokens'> <soapenv:Body> <mer:PutMerchantTokens> <mer:accessToken>" + AccessToken + "</mer:accessToken> <mer:refreshToken>" + RefreshToken + "</mer:refreshToken> </mer:PutMerchantTokens> </soapenv:Body> </soapenv:Envelope>");
