@@ -90,12 +90,12 @@ namespace MobilePayService.Methods
         public static int InsertRecordSession(SessionUrl data, SqlConnection conn)
         {
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            var query = "insert into SessionUrl (url,bctenantid) OUTPUT INSERTED.ID values('" + data.url + "','" + data.bcTenantId + "')";
+            var query = "insert into SessionUrl (url,bctenantid) values('" + data.url + "','" + data.bcTenantId + "');  SELECT SCOPE_IDENTITY()";
             SqlCommand sqlCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
             var val = sqlDataAdapter.InsertCommand.ExecuteScalar();
             sqlCommand.Dispose();
-            return (Int32)val;
+            return Convert.ToInt32(val);
         }
 
         public static void AddTokens(AccessTokenModel data)

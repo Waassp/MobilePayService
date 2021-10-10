@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Xml;
+using Logger = MobilePayService.Methods.Logger;
 
 namespace MobilePayService.RestAPI
 {
@@ -94,17 +95,7 @@ namespace MobilePayService.RestAPI
             }
             catch (Exception eexx)
             {
-                string logFile = ConfigurationManager.AppSettings["LogFile"];
-
-                if (File.Exists(logFile))
-                {
-
-                    using (StreamWriter sw = File.AppendText(logFile))
-                    {
-                        sw.WriteLine(eexx.Message);
-                        sw.Close();
-                    }
-                }
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on ProcessRequest " + eexx.Message);
             }
             finally
             {
@@ -210,9 +201,10 @@ namespace MobilePayService.RestAPI
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception eexx)
             {
-                throw;
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on PostToClient " + eexx.Message);
+
             }
         }
         private static string GetRequestPostData(HttpListenerRequest request)
@@ -255,8 +247,7 @@ namespace MobilePayService.RestAPI
             }
             catch (Exception ex)
             {
-                throw;
-
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on PostInvoice " + ex.Message);
             }
         }
         public void PostAgreement(BCClientModel clientModel, AgreementModel agreement)
@@ -283,10 +274,9 @@ namespace MobilePayService.RestAPI
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception eexx)
             {
-
-                throw;
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on PostAgreement " + eexx);
             }
         }
         public string SendLogingRequest(BCClientModel clientModel, Action<BCClientModel> callback)
@@ -335,6 +325,7 @@ namespace MobilePayService.RestAPI
             }
             catch (Exception ex)
             {
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on GetAccessToken" + ex.Message);
                 accessToken = "";
             }
             

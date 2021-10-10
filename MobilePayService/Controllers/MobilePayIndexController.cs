@@ -89,6 +89,7 @@ namespace MobilePayService.Controllers
             }
             catch (Exception eexx)
             {
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on Mobilepay Call " + eexx.Message);
                 throw eexx;
             }
             string dataToPassWithUrl = baseURL + "/MobilePayIndex" + "/?sessionId=" + insertedId;
@@ -130,6 +131,7 @@ namespace MobilePayService.Controllers
             catch (Exception eexx)
             {
                 str = "Exception on generate Invoice " + eexx;
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on generate Invoice " + eexx.Message);
             }
 
             return str;
@@ -169,6 +171,8 @@ namespace MobilePayService.Controllers
             catch (Exception ex)
             {
                 str = "Error occured, return this error to integrator MDCNordic!";
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Error occured on postInvoice, return this error to integrator MDCNordic! " + ex.Message);
+
                 return str;
             }
 
@@ -204,6 +208,7 @@ namespace MobilePayService.Controllers
             }
             catch (Exception eexx)
             {
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception in Create Agreement " + eexx.Message);
                 str = "Exception in Create Agreement " + eexx;
             }
 
@@ -238,6 +243,7 @@ namespace MobilePayService.Controllers
             }
             catch (Exception eexx)
             {
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception in UpdateAgreement " + eexx);
                 str = "Exception in UpdateAgreement  " + eexx;
             }
 
@@ -300,6 +306,7 @@ namespace MobilePayService.Controllers
             }
             catch (Exception eexx)
             {
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on generate GenerateAuthURL " + eexx);
                 throw eexx;
             }
             return url;
