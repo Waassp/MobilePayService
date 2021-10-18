@@ -110,7 +110,7 @@ namespace MobilePayService.Methods
         {
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            string query = "update MobilePayOnBoarding Set AuthCode='" + data.code + "',IdToken='" + data.id_token + "',AccessToken='" + data.access_token + "',RefreshToken='" + data.refresh_token + "' where state='" + data.state + "'";
+            string query = "update MobilePayOnBoarding Set AuthCode='" + data.code + "',IdToken='" + data.id_token + "',AccessToken='" + data.access_token + "',RefreshToken='" + data.refresh_token + "' where State='" + data.state + "'";
             sqlCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand.ExecuteNonQuery();
@@ -153,7 +153,7 @@ namespace MobilePayService.Methods
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             BCClientModel bCClient = new BCClientModel();
-            string query = "select CodeVerifier,BCTenantId,Premium from MobilePayOnBoarding where state='" + state + "'";
+            string query = "select CodeVerifier,BCTenantId,Premium from MobilePayOnBoarding where State='" + state + "'";
             string codeverified = "";
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
@@ -314,18 +314,16 @@ namespace MobilePayService.Methods
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             BCClientModel bCClient = new BCClientModel();
-            string query = "select CodeVerifier,UserName,Password,BCTenantId,AccessToken,RefreshToken,Premium from MobilePayOnBoarding where BCTenantId='" + tenantId + "'";
+            string query = "select CodeVerifier,BCTenantId,AccessToken,RefreshToken,Premium from MobilePayOnBoarding where BCTenantId='" + tenantId + "'";
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    bCClient.userName = reader.GetString(1);
-                    bCClient.password = reader.GetString(2);
-                    bCClient.BCTenantId = reader.GetString(3);
-                    bCClient.accessToken = string.IsNullOrEmpty(reader.GetString(4)) ? "" : reader.GetString(4);
-                    bCClient.refreshToken = string.IsNullOrEmpty(reader.GetString(5)) ? "" : reader.GetString(5);
-                    bCClient.enableCallback = string.IsNullOrEmpty(reader.GetString(6)) ? "" : reader.GetString(6);
+                    bCClient.BCTenantId = reader.GetString(1);
+                    bCClient.accessToken = string.IsNullOrEmpty(reader.GetString(2)) ? "" : reader.GetString(2);
+                    bCClient.refreshToken = string.IsNullOrEmpty(reader.GetString(3)) ? "" : reader.GetString(3);
+                    bCClient.enableCallback = string.IsNullOrEmpty(reader.GetString(4)) ? "" : reader.GetString(4);
 
                 }
 
