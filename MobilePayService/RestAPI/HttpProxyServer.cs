@@ -70,7 +70,7 @@ namespace MobilePayService.RestAPI
                     if (clientModel.enableCallback.Equals("true"))
                     {
                         string merchantId = "";
-                        PostToClient(clientModel.userName, clientModel.password, clientModel.BCTenantId, model.access_token, model.refresh_token);
+                        //PostToClient(clientModel.userName, clientModel.password, clientModel.BCTenantId, model.access_token, model.refresh_token);
 
                         if (!string.IsNullOrEmpty(model.access_token))
                         {
@@ -202,65 +202,6 @@ namespace MobilePayService.RestAPI
                 {
                     return reader.ReadToEnd();
                 }
-            }
-        }
-        public void PostInvoice(BCClientModel clientModel, InvoiceModel invoice, string responsebody)
-        {
-            string Cred = clientModel.userName + ":" + clientModel.password;
-            responsebody =  new JavaScriptSerializer().Serialize(invoice);
-            string invoiceSoapAction = "urn:microsoft-dynamics-schemas/codeunit/Invoice_CallBack:InvoiceCallBack";
-            HttpWebRequest request = Common.CreateWebRequest(invoice.InvoiceCallBackSoapURL, Cred, invoiceSoapAction);
-            XmlDocument soapEnvelopeXml = new XmlDocument();
-            soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:inv='urn:microsoft-dynamics-schemas/codeunit/Invoice_CallBack'> <soapenv:Body> <inv:InvoiceCallBack> <inv:invoiceId>" + invoice.InvoiceId + "</inv:invoiceId> <inv:status>" + invoice.Status + "</inv:status> <inv:errorCode>" + invoice.ErrorCode + "</inv:errorCode> <inv:errorMessage>" + invoice.ErrorMessage + "</inv:errorMessage> <inv:date>" + invoice.Date + "</inv:date> <inv:response_Body>" + responsebody + "</inv:response_Body> </inv:InvoiceCallBack> </soapenv:Body> </soapenv:Envelope>");
-            using (Stream stream = request.GetRequestStream())
-            {
-                soapEnvelopeXml.Save(stream);
-            }
-            try
-            {
-                using (WebResponse response = request.GetResponse())
-                {
-                    using (StreamReader rd = new StreamReader(response.GetResponseStream()))
-                    {
-                        string soapResult = rd.ReadToEnd();
-                        Console.WriteLine(soapResult);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-
-            }
-        }
-        public void PostAgreement(BCClientModel clientModel, AgreementModel agreement)
-        {
-
-            string Cred = clientModel.userName + ":" + clientModel.password;
-            HttpWebRequest request = Common.CreateWebRequest(clientModel.BCTenantId, Cred,null);
-            XmlDocument soapEnvelopeXml = new XmlDocument();
-            soapEnvelopeXml.LoadXml(@"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:mer='urn:microsoft-dynamics-schemas/codeunit/MerchantTokens'> <soapenv:Body> <mer:AgreementStatus> <mer:agreementId>" + agreement.Agreement_Id + "</mer:agreementId> <mer:status>" + agreement.Status + "</mer:status> <mer:statusText>" + agreement.Status_Text + "</mer:statusText> <mer:statusCode>" + agreement.Status_Code + "</mer:statusCode> <mer:callBackTime>" + agreement.Timestamp + "</mer:callBackTime> </mer:AgreementStatus> </soapenv:Body> </soapenv:Envelope>");
-
-            using (Stream stream = request.GetRequestStream())
-            {
-                soapEnvelopeXml.Save(stream);
-            }
-            try
-            {
-                using (WebResponse response = request.GetResponse())
-                {
-                    using (StreamReader rd = new StreamReader(response.GetResponseStream()))
-                    {
-                        string soapResult = rd.ReadToEnd();
-                        Console.WriteLine(soapResult);
-
-                    }
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
             }
         }
         public string SendLogingRequest(BCClientModel clientModel, Action<BCClientModel> callback)
