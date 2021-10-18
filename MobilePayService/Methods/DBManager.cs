@@ -321,10 +321,12 @@ namespace MobilePayService.Methods
                 while (reader.Read())
                 {
                     bCClient.BCTenantId = reader.GetString(1);
+                    if(!string.IsNullOrEmpty(reader.GetString(2)))
                     bCClient.accessToken = string.IsNullOrEmpty(reader.GetString(2)) ? "" : reader.GetString(2);
-                    bCClient.refreshToken = string.IsNullOrEmpty(reader.GetString(3)) ? "" : reader.GetString(3);
-                    bCClient.enableCallback = string.IsNullOrEmpty(reader.GetString(4)) ? "" : reader.GetString(4);
-
+                    if (!string.IsNullOrEmpty(reader.GetString(3)))
+                        bCClient.refreshToken = string.IsNullOrEmpty(reader.GetString(3)) ? "" : reader.GetString(3);
+                    if (!string.IsNullOrEmpty(reader.GetString(4)))
+                        bCClient.enableCallback = string.IsNullOrEmpty(reader.GetString(4)) ? "" : reader.GetString(4);
                 }
 
             }
