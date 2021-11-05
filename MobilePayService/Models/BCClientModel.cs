@@ -10,7 +10,7 @@ namespace MobilePayService.Models
         public string userName { get; set; }
         public string password { get; set; }
         public string BCTenantId { get; set; }
-        public string enableCallback { get; set; }
+        //public string enableCallback { get; set; }
         public string accessToken { get; set; }
         public string refreshToken { get; set; }
         public string extractedTenantId

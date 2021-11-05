@@ -41,7 +41,7 @@ namespace MobilePayService.Methods
         {
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            string query = "if exists(select 1 from MobilePayOnBoarding   where  [TenantIdFormatted] = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "') begin UPDATE MobilePayOnBoarding SET BCTenantId = '" + data.BCTenantId + "', State = '" + data.state + "' , CodeVerifier = '" + data.code_verifier + "', CodeChallenge = '" + data.code_challenge + "', Premium='" + data.enableCallback + "' where TenantIdFormatted = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "' end else begin  insert into MobilePayOnBoarding (BCTenantId,State,CodeVerifier,CodeChallenge,TenantIdFormatted,Premium) values('" + data.BCTenantId + "','" + data.state + "','" + data.code_verifier + "','" + data.code_challenge + "','" + data.extractedTenantId + "','" + data.enableCallback + "') end";
+            string query = "if exists(select 1 from MobilePayOnBoarding   where  [TenantIdFormatted] = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "') begin UPDATE MobilePayOnBoarding SET BCTenantId = '" + data.BCTenantId + "', State = '" + data.state + "' , CodeVerifier = '" + data.code_verifier + "', CodeChallenge = '" + data.code_challenge + "' where TenantIdFormatted = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "' end else begin  insert into MobilePayOnBoarding (BCTenantId,State,CodeVerifier,CodeChallenge,TenantIdFormatted) values('" + data.BCTenantId + "','" + data.state + "','" + data.code_verifier + "','" + data.code_challenge + "','" + data.extractedTenantId + "') end";
             sqlCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand.ExecuteNonQuery();
@@ -153,7 +153,7 @@ namespace MobilePayService.Methods
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             BCClientModel bCClient = new BCClientModel();
-            string query = "select CodeVerifier,BCTenantId,Premium from MobilePayOnBoarding where State='" + state + "'";
+            string query = "select CodeVerifier,BCTenantIdfrom MobilePayOnBoarding where State='" + state + "'";
             string codeverified = "";
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
@@ -162,7 +162,6 @@ namespace MobilePayService.Methods
                 {
                     codeverified = reader.GetString(0);
                     bCClient.BCTenantId = reader.GetString(1);
-                    bCClient.enableCallback = reader.GetString(2);
                 }
 
             }
@@ -314,19 +313,17 @@ namespace MobilePayService.Methods
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             BCClientModel bCClient = new BCClientModel();
-            string query = "select CodeVerifier,BCTenantId,AccessToken,RefreshToken,Premium from MobilePayOnBoarding where BCTenantId='" + tenantId + "'";
+            string query = "select CodeVerifier,BCTenantId,AccessToken,RefreshToken from MobilePayOnBoarding where BCTenantId='" + tenantId + "'";
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())
             {
                 while (reader.Read())
                 {
                     bCClient.BCTenantId = reader.GetString(1);
-                    if(!string.IsNullOrEmpty(reader.GetString(2)))
+                    if(!reader.IsDBNull(2))
                     bCClient.accessToken = string.IsNullOrEmpty(reader.GetString(2)) ? "" : reader.GetString(2);
-                    if (!string.IsNullOrEmpty(reader.GetString(3)))
-                        bCClient.refreshToken = string.IsNullOrEmpty(reader.GetString(3)) ? "" : reader.GetString(3);
-                    if (!string.IsNullOrEmpty(reader.GetString(4)))
-                        bCClient.enableCallback = string.IsNullOrEmpty(reader.GetString(4)) ? "" : reader.GetString(4);
+                    if (!reader.IsDBNull(3))
+                        bCClient.refreshToken = string.IsNullOrEmpty(reader.GetString(3)) ? "" : reader.GetString(3);                    
                 }
 
             }

@@ -67,8 +67,7 @@ namespace MobilePayService.RestAPI
                 getRefereshToken(accessToken, model =>
                 {
                     DBManager.AddTokens(model);
-                    if (clientModel.enableCallback.Equals("true"))
-                    {
+                   
                         string merchantId = "";
                         //PostToClient(clientModel.userName, clientModel.password, clientModel.BCTenantId, model.access_token, model.refresh_token);
 
@@ -81,7 +80,7 @@ namespace MobilePayService.RestAPI
                         {
                             DBManager.AddMerchantID(merchantId, model);
                         }
-                    }
+               
 
                 });
             }
