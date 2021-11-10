@@ -1188,3 +1188,5 @@ E:\SolutionSpace\GIT\MobilePayService\MobilePayService\obj\Release\MobilePayServ
 E:\SolutionSpace\GIT\MobilePayService\MobilePayService\obj\Release\MobilePayService.csproj.CopyComplete
 E:\SolutionSpace\GIT\MobilePayService\MobilePayService\obj\Release\MobilePayService.dll
 E:\SolutionSpace\GIT\MobilePayService\MobilePayService\obj\Release\MobilePayService.pdb
+E:\SolutionSpace\GIT\MobilePayService\MobilePayService\bin\Microsoft.Identity.Client.dll
+E:\SolutionSpace\GIT\MobilePayService\MobilePayService\bin\Microsoft.Identity.Client.xml

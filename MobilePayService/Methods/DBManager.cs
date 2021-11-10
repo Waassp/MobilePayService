@@ -41,7 +41,7 @@ namespace MobilePayService.Methods
         {
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            string query = "if exists(select 1 from MobilePayOnBoarding   where  [TenantIdFormatted] = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "') begin UPDATE MobilePayOnBoarding SET BCTenantId = '" + data.BCTenantId + "', State = '" + data.state + "' , CodeVerifier = '" + data.code_verifier + "', CodeChallenge = '" + data.code_challenge + "' where TenantIdFormatted = '" + data.extractedTenantId + "' and [BCTenantId] = '" + data.BCTenantId + "' end else begin  insert into MobilePayOnBoarding (BCTenantId,State,CodeVerifier,CodeChallenge,TenantIdFormatted) values('" + data.BCTenantId + "','" + data.state + "','" + data.code_verifier + "','" + data.code_challenge + "','" + data.extractedTenantId + "') end";
+            string query = "if exists(select 1 from MobilePayOnBoarding   where  [BCTenantId] = '" + data.BCTenantId + "') begin UPDATE MobilePayOnBoarding SET BCTenantId = '" + data.BCTenantId + "', State = '" + data.state + "' , CodeVerifier = '" + data.code_verifier + "', CodeChallenge = '" + data.code_challenge + "' where [BCTenantId] = '" + data.BCTenantId + "' end else begin  insert into MobilePayOnBoarding (BCTenantId,State,CodeVerifier,CodeChallenge) values('" + data.BCTenantId + "','" + data.state + "','" + data.code_verifier + "','" + data.code_challenge + "') end";
             sqlCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand = new SqlCommand(query, conn);
             sqlDataAdapter.InsertCommand.ExecuteNonQuery();
@@ -153,7 +153,7 @@ namespace MobilePayService.Methods
             SqlCommand sqlCommand;
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             BCClientModel bCClient = new BCClientModel();
-            string query = "select CodeVerifier,BCTenantIdfrom MobilePayOnBoarding where State='" + state + "'";
+            string query = "select CodeVerifier,BCTenantId from MobilePayOnBoarding where State='" + state + "'";
             string codeverified = "";
             sqlCommand = new SqlCommand(query, conn);
             using (SqlDataReader reader = sqlCommand.ExecuteReader())

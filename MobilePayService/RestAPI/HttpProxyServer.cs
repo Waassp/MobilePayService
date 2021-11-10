@@ -86,7 +86,7 @@ namespace MobilePayService.RestAPI
             }
             catch (Exception eexx)
             {
-                throw eexx;
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on ProcessRequest " + eexx.Message);
             }
             finally
             {
@@ -183,8 +183,9 @@ namespace MobilePayService.RestAPI
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception eexx)
             {
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on PostToClient " + eexx.Message);
                 throw;
             }
         }

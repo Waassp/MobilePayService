@@ -88,6 +88,7 @@ namespace MobilePayService.Controllers
             }
             catch (Exception eexx)
             {
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on Mobilepay Call " + eexx.Message);
                 throw eexx;
             }
             string dataToPassWithUrl = baseURL + "/MobilePayIndex" + "/?sessionId=" + insertedId;
@@ -133,7 +134,6 @@ namespace MobilePayService.Controllers
             string url = "";
             BCClientModel bcClient = new BCClientModel();
             bcClient.BCTenantId = content.BCTenantId;
-            bcClient.enableCallback = string.IsNullOrEmpty(content.enableCallback) ? "false" : content.enableCallback;
             bcClient.scope = content.scope;
             proxy = new HttpProxyServer();
             try
@@ -146,6 +146,7 @@ namespace MobilePayService.Controllers
             }
             catch (Exception eexx)
             {
+                Logger.Log(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + "Exception on generate GenerateAuthURL " + eexx);
                 throw eexx;
             }
             return url;
